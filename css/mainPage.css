@@ -5,9 +5,9 @@ header{
 }
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 1em 2em 1em 2em;
+    padding: 1em 0em 1em 0em;
     height: 60px;
     margin: auto;
     width: auto;
@@ -39,7 +39,7 @@ header{
 #leftHeader{
     border-radius: 10px;
     padding: 0.5em 0.25em 0em 0.25em;
-    width: 300px;
+    width: 20%;
     height: 50px;
     background: #92EAA6;
     color: black;
@@ -47,7 +47,7 @@ header{
 #rightHeader{
     border-radius: 10px;
     padding: 0.5em 0.25em 0em 0.25em;
-    width: 300px;
+    width: 20%;
     height: 50px;
     background: #92EAA6;
     color: black;
@@ -55,10 +55,26 @@ header{
 #centerHeader{
     border-radius: 10px;
     padding: 0.5em 0.25em 0em 0.25em;
-    width: 900px;
+    width: 40%;
     height: 50px;
     background: #92EAA6;
     color: black;
+}
+#centerTitle{
+    padding-left: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    overflow: ;
+    overflow-style: marquee-line;
+
+}
+#centerTitle button{
+    position: relative;
+    left: 15em;
+    outline: none;
+    border-radius: 25px;
+    overflow: hidden;
 }
 .columns{
     background: #EFEFEF;
@@ -66,10 +82,15 @@ header{
     font-size: 17pt;
 }
 #centerColumn{
-    background: inherit;
+    padding: 1em;
+    border-radius: 20px;
+    width: inherit;
 }
-#centerColumn button{
-
+.subtopics{
+    padding: 0.5em;
+    background: white;
+    border-radius: 10px;
+    width: 100%;
 }
 @media screen and (max-width: 600px) {
     .logo, .account, .navbar input[type=text] {
