@@ -13,6 +13,7 @@ header{
     margin: auto;
 }
 .account button{
+    outline: none;
     border-radius: 25px;
     padding: 0.25em;
     margin: auto;
@@ -64,6 +65,7 @@ header{
     grid-template-columns: 25% 50% 25%;
 }
 .center button{
+    outline: none;
     border-radius: 25px;
     padding: 0.25em;
     margin: auto;
