@@ -19,7 +19,7 @@
     <div class="grid-container">
         <div class="grid-header"><h2>Categories</h2></div>
         <div class="grid-entry">
-            <div class="grid-item">1</div>
+            <a href="#"><div class="grid-item">1</div></a>
         </div>
     </div>
     <div class="grid-container">
@@ -29,13 +29,18 @@
                 <button class="newTopic">Create subtopic</button>
         </div>
         <div class="grid-entry">
-            <a href="#"><div class="grid-item">2</div></a>
+            <?php
+                // TODO: sql query to retrieve subtopics
+                echo "<a href=\"#\">";
+                echo "<div class=\"grid-item\">2</div>";
+                echo "</a>";
+            ?>
         </div>
     </div>
     <div class="grid-container">
         <div class="grid-header right"><h2>Ads</h2></div>
         <div class="grid-entry">
-            <div class="grid-item">3</div>
+            <a href="#"><div class="grid-item">3</div></a>
         </div>
     </div>
 </div>
