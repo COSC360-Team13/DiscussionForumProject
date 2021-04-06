@@ -32,10 +32,43 @@
         <div class="grid-entry">
             <?php
                 // TODO: sql query to retrieve subtopics
-                echo "<a href=\"#\">";
-                echo "<div class=\"grid-item\">";
-                echo "</div>";
-                echo "</a>";
+                $host = "localhost";
+                $database = "DiscussionForumDB";
+                $user = "webuser";
+                $password = "P@ssw0rd";
+
+                $connection = mysqli_connect($host, $user, $password, $database);
+                $error = mysqli_connect_error();
+
+                if($error != null)
+                {
+                  $output = "<p>Unable to connect to database!</p>";
+                  exit($output);
+                }
+                else
+                {
+                    $userExists = False;
+                    $sql = "SELECT title FROM subtopic";
+                    $results = mysqli_query($connection, $sql);
+
+                    while($row = mysqli_fetch_assoc($results))
+                    {
+                        // TODO: update link to redirect to correct page
+                        echo "<a href=\"subtopics.php?title=".$row["title"]."\">";
+                        echo "<div class=\"grid-item\">".$row["title"];
+                        echo "</div>";
+                        echo "</a>";
+
+                    }
+                    mysqli_free_result($results);
+                mysqli_close($connection);
+                }
+
+
+
+
+
+
             ?>
         </div>
     </div>
