@@ -1,0 +1,86 @@
+header{
+    background: #92EAA6;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em 1em 2em;
+    height: 60px;
+    margin: auto;
+    width: auto;
+
+}
+.searchbar{
+    width: 1000px;
+}
+.navbar input[type=text] {
+    outline: none;
+    border: none;
+    padding: 0.175em 0em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-image: url('');
+    border-radius: 20px;
+    font-size: 17pt;
+    width: inherit;
+
+}
+.columnHeaders{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    padding: 5em 0em 0em 0em;
+    font-family:"Trebuchet MS", "Lucida Grande", Ranga, sans-serif;
+    font-size: 17pt;
+    margin: auto;
+}
+#leftHeader{
+    border-radius: 10px;
+    padding: 0.5em 0.25em 0em 0.25em;
+    width: 300px;
+    height: 50px;
+    background: #92EAA6;
+    color: black;
+}
+#rightHeader{
+    border-radius: 10px;
+    padding: 0.5em 0.25em 0em 0.25em;
+    width: 300px;
+    height: 50px;
+    background: #92EAA6;
+    color: black;
+}
+#centerHeader{
+    border-radius: 10px;
+    padding: 0.5em 0.25em 0em 0.25em;
+    width: 900px;
+    height: 50px;
+    background: #92EAA6;
+    color: black;
+}
+.columns{
+    background: #EFEFEF;
+    border-radius: 10px;
+    font-size: 17pt;
+}
+#centerColumn{
+    background: inherit;
+}
+#centerColumn button{
+
+}
+@media screen and (max-width: 600px) {
+    .logo, .account, .navbar input[type=text] {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        margin: 0;
+        padding: 14px;
+    }
+    .navbar input[type=text] {
+        border: 1px solid #ccc;
+    }
+}
