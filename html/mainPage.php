@@ -3,11 +3,12 @@
 <head>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/mainPage.css">
+    <link rel="stylesheet" href="../css/navBar.css">
     <title>Home Page</title>
 </head>
 <header>
     <nav class="navbar">
-        <div class="logo"><a href="mainPageOld.html"><img src="" alt="HomepageLogo"></a></div>
+        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
         <div class="searchbar">
             <input type="text" placeholder="Search for Bears..." \></div>
         <div class="account"><button><img src="" alt="Account"></button></div>
@@ -32,7 +33,8 @@
             <?php
                 // TODO: sql query to retrieve subtopics
                 echo "<a href=\"#\">";
-                echo "<div class=\"grid-item\">2</div>";
+                echo "<div class=\"grid-item\">";
+                echo "</div>";
                 echo "</a>";
             ?>
         </div>

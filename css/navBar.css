@@ -1,0 +1,34 @@
+header{
+    background: #92EAA6;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+.navbar{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2em 0em 2em 0em;
+    height: auto;
+    margin: auto;
+}
+.account button{
+    outline: none;
+    border-radius: 25px;
+    padding: 0.25em;
+    margin: auto;
+}
+.searchbar{
+    width: 100%;
+}
+.navbar input[type=text] {
+    outline: none;
+    border: none;
+    padding: 0.175em 0em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-image: url('');
+    border-radius: 20px;
+    font-size: 17pt;
+    width: inherit;
+
+}
