@@ -1,13 +1,13 @@
+.columns{
+    display: grid;
+    padding-top: 3em;
+    grid-template-columns: 25% 50% 25%;
+}
 .grid-container {
     display: grid;
     grid-template-rows: auto auto auto;
     background-color: white;
     padding: 10px;
-}
-.columns{
-    display: grid;
-    padding-top: 3em;
-    grid-template-columns: 25% 50% 25%;
 }
 .grid-entry {
     background: #EFEFEF;
@@ -37,7 +37,7 @@
     margin: auto;
 }
 .grid-item{
-    margin: auto;
+    margin: auto auto 1em auto;
     width: 95%;
     font-size: 10pt;
     border-radius: 10px;
