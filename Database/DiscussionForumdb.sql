@@ -54,10 +54,14 @@ CREATE TABLE `post` (
     `username` varchar(255) NOT NULL,
     `date` DATETIME,
     `comment` VARCHAR(1500) NOT NULL,
+    `upvotes` INT,
+    `downvotes` INT,
     `title` VARCHAR(255) NOT NULL,
     PRIMARY KEY(`username`),
-    FOREIGN KEY (`username`) REFERENCES `users`(`username`),
+    FOREIGN KEY (`username`) REFERENCES `users`(`username`)
+        ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`title`) REFERENCES `subtopic`(`title`)
+        ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -75,6 +79,7 @@ INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) V
 --
 INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Grizzlies', '2021-04-06', 'This subtopic is all about our love of Grizzly bears!', 'Furry');
 INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Black Bear', '2021-03-21', 'This subtopic is all about our love of Black Bears!', 'Furry');
+INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Kermode Bears', '2021-03-21', 'This subtopic is all about our love of Kermode Bears!', 'Cute');
 --
 -- Dumping data for table `posts`
 --
