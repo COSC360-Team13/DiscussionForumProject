@@ -1,0 +1,83 @@
+/*
+Container that uses display grid to make two columns
+*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: white;
+}
+/*
+Every entry in the display grid container is centered and has font size of 15
+*/
+.grid-entry {
+    padding-top: 1em;
+    text-align: center;
+    font-size: 15pt;
+    height: 100%;
+    width: auto;
+}
+/*
+Header 2 in each column has font size of 25pt
+*/
+.grid-entry h2{
+    padding-top: 1em;
+    font-size: 25pt;
+}
+/*
+Right-side column
+*/
+.right{
+    background-color: #92EAA6;
+    color: white;
+}
+
+/*
+Elements inside the grid block
+*/
+table{
+
+    display: inline-block;
+}
+.table-head{
+    padding-top: 1em;
+    text-align: left;
+}
+label{
+    font-weight: bolder;
+}
+input{
+    outline: none;
+    background-color: white;
+    border: solid 2px #92EAA6;
+    border-radius: 10px;
+    font-size: 15pt;
+    height: auto;
+    width: auto;
+}
+.submitForm{
+    padding-top: 1em;
+}
+input[type=reset]{
+    padding: 0.25em;
+    text-decoration: none;
+    color: white;
+    background-color: red;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+input[type=submit], .grid-entry a{
+    padding: 0.25em;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #92EAA6;
+    outline: none;
+    border-radius: 10px;
+
+}
+
+input[type=submit]:hover, input[type=reset]:hover, .grid-entry a:hover{
+    outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
