@@ -18,9 +18,40 @@
 <div id="breadcrumbs"></div>
 <div class="columns">
     <div class="grid-container">
-        <div class="grid-header"><h2>Categories</h2></div>
+        <div class="grid-header">
+            <h2>Categories</h2>
+        </div>
         <div class="grid-entry">
-            <a href="#"><div class="grid-item">1</div></a>
+            <?php
+                $host = "localhost";
+                $database = "DiscussionForumDB";
+                $user = "webuser";
+                $password = "P@ssw0rd";
+
+                $connection = mysqli_connect($host, $user, $password, $database);
+                $error = mysqli_connect_error();
+
+                if($error != null)
+                {
+                    $output = "<p>Unable to connect to database!</p>";
+                    exit($output);
+                }
+                else
+                {
+                    $sql = "SELECT DISTINCT category FROM subtopic";
+                    $results = mysqli_query($connection, $sql);
+                    while($row = mysqli_fetch_assoc($results))
+                    {
+                        // TODO: update link to redirect to correct page
+                        echo "<a href=\"#catgeory=".$row["category"]."\">";
+                        echo "<div class=\"grid-item\">".$row["category"];
+                        echo "</div>";
+                        echo "</a>";
+                    }
+                    mysqli_free_result($results);
+                    mysqli_close($connection);
+                }
+            ?>
         </div>
     </div>
     <div class="grid-container">
@@ -63,17 +94,13 @@
                     mysqli_free_result($results);
                 mysqli_close($connection);
                 }
-
-
-
-
-
-
             ?>
         </div>
     </div>
     <div class="grid-container">
-        <div class="grid-header right"><h2>Ads</h2></div>
+        <div class="grid-header">
+            <h2>Ads</h2>
+        </div>
         <div class="grid-entry">
             <a href="#"><div class="grid-item">3</div></a>
         </div>
