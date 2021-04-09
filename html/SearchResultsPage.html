@@ -1,50 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/SearchResults.css">
+    <link rel="stylesheet" href="../css/mainPage.css">
     <title>Search Results</title>
 </head>
-<header>
-    <nav class="navbar">
-        <div class="logo"><a href="mainPage.html"><img src="" alt="HomepageLogo"></a></div>
-        <div class="searchbar">
-            <input type="text" placeholder="Search for Bears..." \>
-        </div>
-        <div class="account"><button><img src="" alt="Account"></button></div>
-    </nav>
-</header>
+<?php include 'navBar.php'; ?>
 <body>
 <div id="breadcrumbs"></div>
-<div class="content">
-    <div class="columnHeaders">
-        <div id="leftHeader"><h2>Categories</h2>
-            <br>
-            <br>
-            <div class="columns">
-                <div id="leftColumn">Left column</div>
-            </div>
+<div class="columns">
+    <div class="grid-container">
+        <div class="grid-header">
+            <h2>Categories</h2>
         </div>
-        <div id="centerHeader"><h2>Subtopics  <button>Create subtopic</button></h2>
-            <br>
-            <br>
-            <div class="columns">
-                <div id="centerColumn">
-                    <div class="subtopics">Center column</div>
-                </div>
-            </div>
-        </div>
-        <div id="rightHeader"><h2>Ads</h2>
-            <br>
-            <br>
-            <div class="columns">
-                <div id="rightColumn">Right column</div>
-            </div>
+        <div class="grid-entry">
+            <div class="grid-item">1</div>
         </div>
     </div>
-
-
+    <div class="grid-container">
+        <div class="grid-header center">
+            <span></span>
+            <h2>Subtopics</h2>
+            <button class="newTopic">Create subtopic</button>
+        </div>
+        <div class="grid-entry">
+            <div class="grid-item">Thing</div>
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="grid-header">
+            <h2>Ads</h2>
+        </div>
+        <div class="grid-entry">
+            <a href="#"><div class="grid-item">3</div></a>
+        </div>
+    </div>
 </div>
+
 </body>
+<footer>
+
+</footer>
 </html>
