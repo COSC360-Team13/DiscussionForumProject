@@ -1,75 +1,45 @@
 <!DOCTYPE html>
-<html>
-<?php
-
-$host = "localhost";
-$database = "DiscussionForumDB";
-$user = "webuser";
-$password = "P@ssw0rd";
-
-$connection = mysqli_connect($host, $user, $password, $database);
-$error = mysqli_connect_error();
-if($error != null)
-{
-  $output = "<p>Unable to connect to database!</p>";
-  exit($output);
-}
-else
-{
-    $userExists = False;
-    $sql = "SELECT username, email FROM users";
-
-    $results = mysqli_query($connection, $sql);
-    // Check if server request is using the correct Post method
-
-    if($_SERVER["REQUEST_METHOD"] === "POST"){
-        // retrieve all post request variables
-        $firstname = $_POST["firstname"];
-        $lastname = $_POST["lastname"];
-        $username = $_POST["username"];
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        if(!empty($firstname) && !empty($lastname) && !empty($username) && !empty($email) && !empty($password))
-            while($row = mysqli_fetch_assoc($results))
-            {
-                //echo "username: ".$row["username"]." email: ".$row["email"];
-                if($row["username"] === $username || $row["email"] === $email)
-                {
-                    $userExists = true;
-                    break;
-                }
-
-            }
-            mysqli_free_result($results);
-            if($userExists)
-                {
-                    header("Location: registrationPage.php?firstname=".$firstname."&lastname=".$lastname."&email=".$email."&userExists");
-//                     echo "<a href=\"registrationPage.php?firstname=".$firstname."&lastname=".$lastname."&email=".$email."&userExists\">Return to user registration</a>";
-                }
-                else
-                {
-                    echo "We did it";
-//                     mysqli_autocommit($connection, FALSE);
-//                     mysqli_begin_transaction($connection);
-//                     try {
-//                         $stmt = mysqli_prepare($connection, 'INSERT INTO users (firstname, lastname, username, email, password) VALUES (?,?,?,?,?)');
-//                         mysqli_stmt_bind_param($stmt, 'sssss', $firstname, $lastname, $username, $email, md5($password));
-//                         mysqli_stmt_execute($stmt);
-//                         mysqli_commit($connection);
-//                         echo "An account for the user ".$firstname." has been created";
-//                     } catch (mysqli_sql_exception $exception) {
-//                         mysqli_rollback($mysqli);
-//                         throw $exception;
-//                     }
-                }
-    }
-    else
-    {
-        echo "Bad request";
-    }
-
-    mysqli_close($connection);
-}
-?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/registration.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- In the event that jquery doesnt load through the web. -->
+    <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/formValidation.js"></script>
+    <script type="text/javascript" src="../scripts/usernameAvailabilityDisplay.js"></script>
+    <!-- Borrowed this password checker from lab9 -->
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-entry">
+            <a href="mainPage.php">Return to Homepage</a>
+            <h2>Join the Bear Cave</h2>
+            <form method="post" action="newUser.php" id="mainForm">
+                <table>
+                    <tr><td class="table-head" colspan="2"><label>First Name:</label></td></tr>
+                    <tr><td colspan="2"><input type="text" name="firstname" placeholder="John" class="required"></td></tr>
+                    <tr><td class="table-head" colspan="2"><label>Last Name:</label></td></tr>
+                    <tr><td colspan="2"><input type="text" name="lastname" placeholder="Doe" class="required"></td></tr>
+                    <tr><td class="table-head" colspan="2"><label>Username:</label></td></tr>
+                    <tr><td colspan="2"><input type="text" name="username" id="username" placeholder="johnDoe123" class="required"></td></tr>
+                    <tr><td colspan="2" ><p id="userValid"></p></td></tr>
+                    <tr><td class="table-head" colspan="2"><label>Email:</label></td></tr>
+                    <tr><td colspan="2"><input type="email" name="email" placeholder="john@doe.com" class="required"></td></tr>
+                    <tr><td class="table-head" colspan="2"><label>Password:</label></td></tr>
+                    <tr><td colspan="2"><input type="password" name="password" id="password" class="required"></td></tr>
+                    <tr><td class="table-head" colspan="2"><label>Confirm Password:</label></td></tr>
+                    <tr><td colspan="2"><input type="password" name="password-check" id="password-check" class="required"></td></tr>
+                    <tr><td colspan="2" ><p id="no-match" hidden>Passwords do not match</p></td></tr>
+                    <tr><td class="submitForm"><input type="submit" value="Sign Up"></td><td class="submitForm"><input type="reset" value="Reset"></td></tr>
+                </table>
+            </form>
+        </div>
+        <div class="grid-entry right">
+            <h2>Stuff</h2>
+        </div>
+    </div>
+</body>
 </html>

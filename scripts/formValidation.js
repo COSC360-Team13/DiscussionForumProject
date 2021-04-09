@@ -1,4 +1,16 @@
-//check passwords
+// Verify valid username
+function checkUsername(event){
+    var userValid = document.getElementById("userValid");
+    var username = document.getElementById("username");
+    if(userValid.innerText === "Unavailable")
+    {
+
+        makeRed(username);
+        event.preventDefault();
+    }
+}
+
+// Check for matching passwords
 function checkPasswordMatch(event)
 {
     // alert(password.val());
@@ -20,6 +32,7 @@ function checkPasswordMatch(event)
     }
 
 }
+// Check empty fields
 function isBlank(inputField)
 {
     if (inputField.value == "")
@@ -28,15 +41,17 @@ function isBlank(inputField)
     }
     return false;
 }
-
+// Make field element red
 function makeRed(inputDiv){
     inputDiv.style.borderColor="#AA0000";
 }
-
+// Clear styling on field element
 function makeClean(inputDiv){
     inputDiv.style.borderColor="#92EAA6";
 }
+// Event listener to prevent submission
 $(document).ready(function(){
+
     $("#mainForm").submit(function(event){
         var requiredInputs = $(".required");
         var error = false;
@@ -60,7 +75,7 @@ $(document).ready(function(){
         {
             console.log('checking match');
             checkPasswordMatch(event);
+            checkUsername(event);
         }
-
     });
 });
