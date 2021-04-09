@@ -8,7 +8,7 @@
 </head>
 <header>
     <nav class="navbar">
-        <div class="logo"><a href="mainPage.html"><img src="" alt="HomepageLogo"></a></div>
+        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
         <div class="headertitle">Become A Bear Today!</div>
     </nav>
 </header>
@@ -39,7 +39,7 @@
         </p>
         <br>
         <p>
-            New to The Bear Cave? <a id="signup" href="">BEAR UP</a>
+            New to The Bear Cave? <a id="signup" href="registrationPage.php">BEAR UP</a>
         </p>
     </div>
     <div class="logininfo">
