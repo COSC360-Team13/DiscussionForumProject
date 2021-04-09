@@ -39,6 +39,5 @@
             <h2>Stuff</h2>
         </div>
     </div>
-
 </body>
 </html>
