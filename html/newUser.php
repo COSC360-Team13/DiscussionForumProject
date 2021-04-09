@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../css/newUser.css">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- In the event that jquery doesnt load through the web. -->
     <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
@@ -16,9 +16,9 @@
     <div class="grid-container">
         <div class="grid-entry">
             <a href="mainPage.php">Return to Homepage</a>
-            <h2>Join the Bear Cave</h2>
-            <form method="post" action="newUser.php" id="mainForm">
+            <form method="POST" action="registerUser.php" id="mainForm">
                 <table>
+                <legend><h2>Join the Bear Cave</h2></legend>
                     <tr><td class="table-head" colspan="2"><label>First Name:</label></td></tr>
                     <tr><td colspan="2"><input type="text" name="firstname" placeholder="John" class="required"></td></tr>
                     <tr><td class="table-head" colspan="2"><label>Last Name:</label></td></tr>

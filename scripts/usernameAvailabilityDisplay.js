@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $("#username").keyup(function(){
         var username = $(this).val().trim();
-        console.log(username);
+        // console.log(username);
         if(username !== ''){
 
             $.ajax({
@@ -11,7 +11,7 @@ $(document).ready(function(){
                 success: function(response){
                     // Show response
                     $("#userValid").html(response);
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }else{

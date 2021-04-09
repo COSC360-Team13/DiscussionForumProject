@@ -16,7 +16,7 @@ function checkPasswordMatch(event)
     // alert(password.val());
     // console.log(password.value !== passwordCheck.value)
     var password = document.getElementById("password");
-    var passwordCheck = document.getElementById("password-check")
+    var passwordCheck = document.getElementById("password-check");
     if (password.value !== passwordCheck.value)
     {
         // console.log("passwords don't match!");

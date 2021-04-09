@@ -1,75 +1,34 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/registerUser.css">
+</head>
 <?php
-
-$host = "localhost";
-$database = "DiscussionForumDB";
-$user = "webuser";
-$password = "P@ssw0rd";
-
-$connection = mysqli_connect($host, $user, $password, $database);
-$error = mysqli_connect_error();
-if($error != null)
-{
-  $output = "<p>Unable to connect to database!</p>";
-  exit($output);
-}
-else
-{
-    $userExists = False;
-    $sql = "SELECT username, email FROM users";
-
-    $results = mysqli_query($connection, $sql);
-    // Check if server request is using the correct Post method
-
+    include 'navBar.php';
+    include 'config.php';
     if($_SERVER["REQUEST_METHOD"] === "POST"){
         // retrieve all post request variables
         $firstname = $_POST["firstname"];
+//         echo "Name ".$firstname;
         $lastname = $_POST["lastname"];
+//         echo " ".$lastname."<br>";
         $username = $_POST["username"];
+//         echo "Username: ".$username."<br>";
         $email = $_POST["email"];
-        $password = $_POST["password"];
+//         echo "Email: ".$email."<br>";
+        $password = md5($_POST["password"]);
+//         echo "Password: ".$password."<br>";
 
-        if(!empty($firstname) && !empty($lastname) && !empty($username) && !empty($email) && !empty($password))
-            while($row = mysqli_fetch_assoc($results))
-            {
-                //echo "username: ".$row["username"]." email: ".$row["email"];
-                if($row["username"] === $username || $row["email"] === $email)
-                {
-                    $userExists = true;
-                    break;
-                }
-
-            }
-            mysqli_free_result($results);
-            if($userExists)
-                {
-                    header("Location: registrationPage.php");
-//                     echo "<a href=\"registrationPage.php?firstname=".$firstname."&lastname=".$lastname."&email=".$email."&userExists\">Return to user registration</a>";
-                }
-                else
-                {
-                    echo "We did it";
-//                     mysqli_autocommit($connection, FALSE);
-//                     mysqli_begin_transaction($connection);
-//                     try {
-//                         $stmt = mysqli_prepare($connection, 'INSERT INTO users (firstname, lastname, username, email, password) VALUES (?,?,?,?,?)');
-//                         mysqli_stmt_bind_param($stmt, 'sssss', $firstname, $lastname, $username, $email, md5($password));
-//                         mysqli_stmt_execute($stmt);
-//                         mysqli_commit($connection);
-//                         echo "An account for the user ".$firstname." has been created";
-//                     } catch (mysqli_sql_exception $exception) {
-//                         mysqli_rollback($mysqli);
-//                         throw $exception;
-//                     }
-                }
+        $statement = $pdo->prepare("INSERT INTO users (firstName, lastName, username, email, password) VALUES (?, ?, ?, ?, ?)");
+        $statement->execute([$firstname, $lastname, $username, $email, $password]);
+        echo "<div class=\"welcome\"><h2>Welcome to the Bear Cave: ".$username."</h2></div>";
+        echo "<div class=\"returnButton\"><a href=\"mainPage.php\">Return to Homepage</a></div>";
+//         echo "Query complete";
     }
     else
     {
         echo "Bad request";
     }
-
-    mysqli_close($connection);
-}
 ?>
 </html>

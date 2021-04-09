@@ -1,3 +1,6 @@
+<head>
+<link rel="stylesheet" href="../css/navBar.css">
+</head>
 <header>
     <nav class="navbar">
         <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
