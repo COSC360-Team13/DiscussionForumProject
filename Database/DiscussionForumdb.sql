@@ -32,6 +32,7 @@ CREATE TABLE `users` (
     `lastName` varchar(255) NOT NULL,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
+    `image` varchar(100),
     UNIQUE (`email`),
     PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -66,6 +67,9 @@ CREATE TABLE `post` (
     `pid` INT NOT NULL AUTO_INCREMENT,
     `ptitle` varchar(100) NOT NULL,
     `username` varchar(255) NOT NULL,
+    `image` varchar(100),
+    `link` varchar(100),
+    `content` varchar(1000),
     `date` DATETIME,
     `upvotes` INT,
     `downvotes` INT,
@@ -87,11 +91,12 @@ CREATE TABLE `comments` (
     `date` DATETIME,
     `upvotes` INT,
     `downvotes` INT,
-    `pid` INT NOT NULL,
+    `postid` INT NOT NULL,
+    `parentid` INT,
     PRIMARY KEY(`cid`),
     FOREIGN KEY (`username`) REFERENCES `users`(`username`)
         ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (`pid`) REFERENCES `post`(`pid`)
+    FOREIGN KEY (`postid`) REFERENCES `post`(`pid`)
         ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -128,8 +133,8 @@ INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title
 --
 -- Dumping data for table `comments`
 --
-INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `pid`) VALUES ('dvader', 'I love Grizzly bears, they look so cute and cuddly', '2021-04-07', 7, 3, 1);
-INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `pid`) VALUES ('blue_bear', 'I love Black bears, they look so cute and cuddly', '2021-04-07', 10, 2, 2);
+INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `postid`) VALUES ('dvader', 'I love Grizzly bears, they look so cute and cuddly', '2021-04-07', 7, 3, 1);
+INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `postid`) VALUES ('blue_bear', 'I love Black bears, they look so cute and cuddly', '2021-04-07', 10, 2, 2);
 --
 -- Indexes for dumped tables
 --

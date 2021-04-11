@@ -5,8 +5,9 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/subtopics.css">
     <title>Subtopic</title>
+    <?php include 'navBar.php'; ?>
 </head>
-<?php include 'navBar.php'; ?>
+
 <body>
 <?php
     include 'config.php';
