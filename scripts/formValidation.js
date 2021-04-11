@@ -78,4 +78,5 @@ $(document).ready(function(){
             checkUsername(event);
         }
     });
+    // TODO: on reset should make every field clean
 });
