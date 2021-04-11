@@ -1,7 +1,12 @@
 header{
     background: #92EAA6;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+
 }
 .navbar{
     display: grid;
@@ -32,6 +37,7 @@ header{
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: auto;
+    outline: none;
     border: none;
     border-left: 2px solid black;
 }
