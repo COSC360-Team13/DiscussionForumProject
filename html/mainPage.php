@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/mainPage.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <?php include 'navBar.php';?>
     <title>Home Page</title>
 </head>
-<?php include 'navBar.php'; ?>
-<body>
+<body style="margin-top:5em">
 <div id="breadcrumbs"></div>
 <div class="columns">
     <div class="grid-container">
@@ -64,9 +64,7 @@
         </div>
     </div>
 </div>
-
 </body>
 <footer>
-
 </footer>
 </html>
