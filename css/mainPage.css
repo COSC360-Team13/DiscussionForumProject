@@ -17,6 +17,11 @@ header{
     padding: 0.25em;
     margin: auto;
 }
+.login button{
+    border-radius: 25px;
+    padding: 0.25em;
+    margin: auto;
+}
 .searchbar{
     width: 100%;
 }

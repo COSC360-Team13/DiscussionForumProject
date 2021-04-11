@@ -10,7 +10,10 @@
         <div class="logo"><a href="mainPageOld.html"><img src="" alt="HomepageLogo"></a></div>
         <div class="searchbar">
             <input type="text" placeholder="Search for Bears..." \></div>
-        <div class="account"><button><img src="" alt="Account"></button></div>
+        <div class="account">
+            <button><a href="profile.html"><img src="" alt="Account"></a></button>
+            <button><a href="LoginPage.php">Login</a></button>
+        </div>
     </nav>
 </header>
 <body>

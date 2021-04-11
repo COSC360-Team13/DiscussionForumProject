@@ -8,7 +8,7 @@
 </head>
 <header>
     <nav class="navbar">
-        <div class="logo"><a href="mainPage.html"><img src="" alt="HomepageLogo"></a></div>
+        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
         <div class="headertitle">Become A Bear Today!</div>
     </nav>
 </header>
@@ -16,7 +16,7 @@
     <div class="loginmain">
         <div class="loginlogo"><img src="" alt="BearCaveLogo"></div>
         <div class="userinput">
-            <form method="post" action="process.php">
+            <form method="post" action="validateLogin.php">
                 <fieldset>
                     <legend>Login:</legend>
                     <p>
