@@ -67,6 +67,9 @@ $(document).ready(function(){
         var requiredInputs = $(".required");
         for(var i =0; i < requiredInputs.length; i++)
             makeClean(requiredInputs[i]);
+        $("#emailValid").html("");
+        $("#userValid").html("");
+        $("#no-match").attr("hidden",true);
     });
     mainForm.submit(function(event){
         var requiredInputs = $(".required");
