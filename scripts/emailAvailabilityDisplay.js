@@ -1,21 +1,21 @@
 $(document).ready(function(){
-    $("#username").keyup(function(){
-        var username = $(this).val().trim();
+    $("#email").keyup(function(){
+        var email = $(this).val().trim();
         // console.log(username);
-        if(username !== ''){
+        if(email !== ''){
 
             $.ajax({
-                url: 'usernameExistsCheck.php',
+                url: 'emailExistsCheck.php',
                 type: 'post',
-                data: {username:username},
+                data: {email:email},
                 success: function(response){
                     // Show response
-                    $("#userValid").html(response);
+                    $("#emailValid").html(response);
                     // console.log(response);
                 }
             });
         }else{
-            $("#userValid").html("");
+            $("#emailValid").html("");
         }
 
     });

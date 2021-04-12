@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="../css/reset.css">
 <link rel="stylesheet" href="../css/registerUser.css">
 </head>
+<body style="margin-top:5em">
 <?php
     include 'navBar.php';
     include 'config.php';
@@ -31,4 +32,5 @@
         echo "Bad request";
     }
 ?>
+</body>
 </html>
