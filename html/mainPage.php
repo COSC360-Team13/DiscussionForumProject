@@ -11,8 +11,7 @@
         <div class="searchbar">
             <input type="text" placeholder="Search for Bears..." \></div>
         <div class="account">
-            <button><a href="profile.html"><img src="" alt="Account"></a></button>
-            <button><a href="LoginPage.php">Login</a></button>
+            <?php include 'session.php'; ?>
         </div>
     </nav>
 </header>
