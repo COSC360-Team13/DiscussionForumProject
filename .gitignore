@@ -80,3 +80,11 @@ __pycache__/
 # Node Modules
 node_modules/
 
+._.git
+._.idea
+._README.md
+._css
+._html
+._index.php
+html/._mainPage.html
+html/._mainPage.php

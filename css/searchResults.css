@@ -1,5 +1,4 @@
 .columns{
-    margin-top: 5em;
     display: grid;
     padding-top: 3em;
     grid-template-columns: 25% 50% 25%;
@@ -44,11 +43,12 @@ a{
 }
 .center{
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 12.5% 12.5% 50% 25%;
 }
-.center button{
+.button{
     outline: none;
     border-radius: 25px;
-    padding: 0.25em;
+    width: auto;
+    padding: 0.25em 1em 0.25em 1em;
     margin: auto;
 }

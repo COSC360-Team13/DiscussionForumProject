@@ -1,10 +1,23 @@
 // Verify valid username
+
+function Reset(){
+    makeClean($("#username"));
+}
+
 function checkUsername(event){
     var userValid = document.getElementById("userValid");
     var username = document.getElementById("username");
     if(userValid.innerText === "Unavailable")
     {
         makeRed(username);
+        event.preventDefault();
+    }
+}
+function checkEmail(event){
+    var emailValid = document.getElementById("emailValid");
+    var email = document.getElementById("email");
+    if(emailValid.innerText === "Email already in use"){
+        makeRed(email);
         event.preventDefault();
     }
 }
@@ -50,8 +63,17 @@ function makeClean(inputDiv){
 }
 // Event listener to prevent submission
 $(document).ready(function(){
+    mainForm = $("#mainForm");
+    mainForm.on("click", "input[type='reset']", function(){
+        var requiredInputs = $(".required");
+        for(var i =0; i < requiredInputs.length; i++)
+            makeClean(requiredInputs[i]);
+        $("#emailValid").html("");
+        $("#userValid").html("");
+        $("#no-match").attr("hidden",true);
+    });
+    mainForm.submit(function(event){
 
-    $("#mainForm").submit(function(event){
         var requiredInputs = $(".required");
         var error = false;
         for (var i=0; i < requiredInputs.length; i++)
@@ -75,7 +97,8 @@ $(document).ready(function(){
             console.log('checking match');
             checkPasswordMatch(event);
             checkUsername(event);
+            checkEmail(event);
         }
     });
-    // TODO: on reset should make every field clean
-});s
+});
+

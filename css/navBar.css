@@ -1,0 +1,55 @@
+header{
+    background: #92EAA6;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 5px 5px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.navbar{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2em 0em 2em 0em;
+    height: auto;
+    margin: auto;
+}
+.account button{
+    outline: none;
+    border-radius: 25px;
+    padding: 0.25em;
+    margin: auto;
+}
+.searchbar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+.searchButton{
+    border-radius: 0 20px 20px 0;
+    width: 25%;
+    font-size: 15pt;
+    font-weight: bolder;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: auto;
+    outline: none;
+    border: none;
+    border-left: 2px solid black;
+}
+.searchButton:hover{
+    background-color: #ea92d6;
+}
+.navbar input[type=text] {
+    outline: none;
+    border: none;
+    padding: 0.175em 0em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-image: url('');
+    border-radius: 20px 0 0 20px;
+    font-size: 17pt;
+    width: inherit;
+
+}

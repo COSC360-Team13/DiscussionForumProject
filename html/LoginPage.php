@@ -51,6 +51,7 @@
         <div class="grid-entry right">
             <img src="../images/inspire.png" alt="Inspire" class="inspire">
         </div>
+
     </div>
 </body>
 </html>
