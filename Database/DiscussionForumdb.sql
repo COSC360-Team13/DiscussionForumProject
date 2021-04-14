@@ -49,10 +49,10 @@ CREATE TABLE `category` (
 -- Table structure for table `subtopic`
 --
 CREATE TABLE `subtopic` (
-    `title` varchar(255) NOT NULL,
+    `title` varchar(20) NOT NULL,
     `date` DATETIME,
-    `image` varchar(100),
     `color` varchar(20),
+    `textColor` varchar(20),
     `about` varchar (1000) NOT NULL,
     `category` varchar (255) NOT NULL,
     PRIMARY KEY (`title`),
