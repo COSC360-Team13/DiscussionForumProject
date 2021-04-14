@@ -3,58 +3,60 @@
 <head>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/searchResults.css">
+    <link rel="stylesheet" href="../css/joinButton.js">
     <title>Search Results</title>
 </head>
 <?php include 'navBar.php'; ?>
-<body>
+<body style="margin-top:5em">
 <div class="main">
 <div id="breadcrumbs"></div>
 <div class="columns">
     <div class="grid-container">
         <div class="grid-header">
-            <h2>About</h2>
+            <div><p>SORT BY</p></div>
+            <div><p>POSTS FROM</p></div>
         </div>
-        <div class="grid-entry">
-            <div class="grid-item">1</div>
-        </div>
-    </div>
-    <div class="grid-container">
-        <div class="grid-header center">
-            <button class="button top">Top</button>
-            <button class="button new">New</button>
-            <h2>Subtopics</h2>
-            <button class="button create">Create</button>
-        </div>
-        <div class="grid-entry">
-            <div class="grid-item">Thing</div>
             <?php include 'config.php';
-            $sql = "SELECT DISTINCT category FROM subtopic";
-            $results = $pdo->query($sql);
-            while($row = $results->fetch())
-            {
-                // TODO: update link to redirect to correct page
-                echo "<a href=\"#catgeory=".$row["category"]."\">";
-                echo "<div class=\"grid-item\">".$row["category"];
-                echo "</div>";
-                echo "</a>";
-            }
-            $pdo = null;
-            $results = null;
-        </div>
+                echo "<div class=\"grid-entry\">";
+                 if($_SERVER["REQUEST_METHOD"] === "GET"){
+                    $subtopic = $_GET["searchTerm"];
+                    $statement = $pdo->prepare("SELECT title, about, image FROM subtopic WHERE title LIKE ?");
+                    $statement->execute(["%$subtopic%"]);
+                    while($row = $statement->fetch())
+                    {
+                        // TODO: update link to redirect to correct page
+
+
+                        echo "<div class=\"grid-item\">";
+                        echo "<a href=\"subtopics.php?title=".$row["title"]."\">";
+                        echo "<div class=\"separator\">";
+                        echo "<div class=\"image\"><img src=\"".$row["image"]."\" alt=\"Place Holder\">";
+                        echo "</div>";
+                        echo "<div class=\"title\">".$row["title"];
+                        echo "<div class=\"about\">".$row["about"];
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</a>";
+                        echo "<div class=\"join\"><button onclick=\"join()\">Join</button></div>";
+                        echo "</div>";
+                    }
+                    $pdo = null;
+                    $results = null;
+                 }
+                 echo "</div>";
+                    ?>
     </div>
     <div class="grid-container">
-        <div class="grid-header">
-            <h2>Ads</h2>
-        </div>
-        <div class="grid-entry">
-            <a href="#"><div class="grid-item">3</div></a>
+        <div class="grid-entry right">
+            <img src="" alt="CreateNewTopic">
+            <p>Have an idea for a new community?</p>
+            <button class="newTopic">Create subtopic +</button>
         </div>
     </div>
 </div>
 </div>
 
 </body>
-<footer>
-
-</footer>
+<?php include 'footer.php'; ?>
 </html>
