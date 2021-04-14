@@ -80,6 +80,7 @@ __pycache__/
 # Node Modules
 node_modules/
 
+# XAMPP thumbnails
 ._.git
 ._.idea
 ._README.md
@@ -88,3 +89,9 @@ node_modules/
 ._index.php
 html/._mainPage.html
 html/._mainPage.php
+._AES_example.png
+._GoogleAPIs.PNG
+._TestImage.png
+
+# Don't include photos
+images/**/*.png

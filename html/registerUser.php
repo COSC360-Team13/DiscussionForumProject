@@ -20,12 +20,15 @@
 //         echo "Email: ".$email."<br>";
         $password = md5($_POST["password"]);
 //         echo "Password: ".$password."<br>";
+        $image = $_POST["profile"];
 
-        $statement = $pdo->prepare("INSERT INTO users (firstName, lastName, username, email, password) VALUES (?, ?, ?, ?, ?)");
-        $statement->execute([$firstname, $lastname, $username, $email, $password]);
+        $statement = $pdo->prepare("INSERT INTO users (firstName, lastName, username, image, email, password) VALUES (?, ?, ?, ?, ?, ?)");
+        $statement->execute([$firstname, $lastname, $username, $image, $email, $password]);
         echo "<div class=\"welcome\"><h2>Welcome to the Bear Cave: ".$username."</h2></div>";
         echo "<div class=\"returnButton\"><a href=\"mainPage.php\">Return to Homepage</a></div>";
 //         echo "Query complete";
+    $statement = null;
+    $pdo = null;
     }
     else
     {
