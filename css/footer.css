@@ -1,0 +1,17 @@
+footer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 2em;
+    background-color: #92EAA6;
+    border-radius: 5px 5px 0 0;
+    margin-top: 10em;
+}
+.footer-related{
+    border-top: solid 2px white;
+    padding-left: 1em;
+    padding-top: 1em;
+}
+.footer-section{
+    border-top: solid 2px white;
+    padding-top: 1em;
+}
