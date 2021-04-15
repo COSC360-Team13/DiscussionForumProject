@@ -6,7 +6,7 @@
         <title>Subtopic</title>
     </head>
     <?php include 'navBar.php'; ?>
-    <body>
+    <body style="margin-top: 5em">
         <div class="content">    
             <h1>This subtopic doesn't exist. Would you like to create it?</h1>
             <button class='newTopic'>

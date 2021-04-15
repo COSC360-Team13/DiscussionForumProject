@@ -1,8 +1,20 @@
+// function checkImage(event){
+//     var image = document.getElementById("profile");
+//     console.log(image.value);
+//     var imageIndicator = document.getElementById("no-img");
+//     if(image.value === "None"){
+//         makeRed(image);
+//         imageIndicator.setAttribute("class", "red");
+//         imageIndicator.removeAttribute("hidden");
+//         event.preventDefault();
+//     }
+// }
 // Verify valid username
 
 function Reset(){
     makeClean($("#username"));
 }
+
 
 function checkUsername(event){
     var userValid = document.getElementById("userValid");
@@ -47,7 +59,7 @@ function checkPasswordMatch(event)
 // Check empty fields
 function isBlank(inputField)
 {
-    if (inputField.value == "")
+    if (inputField.value == "" || inputField.value == "None")
     {
         return true;
     }
@@ -68,9 +80,12 @@ $(document).ready(function(){
         var requiredInputs = $(".required");
         for(var i =0; i < requiredInputs.length; i++)
             makeClean(requiredInputs[i]);
+
         $("#emailValid").html("");
         $("#userValid").html("");
         $("#no-match").attr("hidden",true);
+        $("#profile-image").hide();
+        $("#no-img").attr("hidden", true);
     });
     mainForm.submit(function(event){
 
@@ -94,10 +109,11 @@ $(document).ready(function(){
         }
         else
         {
-            console.log('checking match');
+            // console.log('checking match');
             checkPasswordMatch(event);
             checkUsername(event);
             checkEmail(event);
+            checkImage(event);
         }
     });
 });
