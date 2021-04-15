@@ -1,10 +1,11 @@
 footer{
     display: grid;
+    margin-top: 20em;
     grid-template-columns: 50% 50%;
+    height: auto;
     padding: 2em;
     background-color: #92EAA6;
     border-radius: 5px 5px 0 0;
-    margin-top: 10em;
 }
 .footer-related{
     border-top: solid 2px white;

@@ -92,6 +92,7 @@ html/._mainPage.php
 ._AES_example.png
 ._GoogleAPIs.PNG
 ._TestImage.png
+._footer.css
 
 # Don't include photos
 images/**/*.png
