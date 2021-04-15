@@ -45,7 +45,7 @@
             </p>
             <br>
             <p>
-                New to The Bear Cave? <a id="signup" href="newUser.php">BEAR UP</a>
+                New to The Bear Cave? <a id="signup" href="newUserPage.php">BEAR UP</a>
             </p>
         </div>
         <div class="grid-entry right">

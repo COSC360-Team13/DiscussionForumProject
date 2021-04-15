@@ -1,7 +1,7 @@
 <?php
 session_start();
-if ( isset($_SESSION['user']) && $_SESSION['user'] !== "" ) {
-    echo "<button><a href=\"profile.html\"><img src=\"\" alt=\"Account\"></a></button>";
+if (isset($_SESSION['user']) && $_SESSION['user'] !== "" ) {
+    echo "<button><a href=\"profile.php\"><img src=\"\" alt=\"Account\"></a></button>";
     echo "<button><a href=\"logout.php\">Logout</a></button>";
 }
 else {
