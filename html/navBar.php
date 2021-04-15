@@ -7,9 +7,9 @@
 </head>
 <header>
     <div class="navbar">
-        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
+        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo" width="79" height="47"></a></div>
         <div class="searchbar">
             <input type="text" id="searchTerm" placeholder="Search for Bears..." \><button class="searchButton" onclick="search()">Search</button></div>
-        <div class="account"><button><img src="" alt="Account"></button></div>
+        <div class="account"><?php include 'session.php'; ?></div>
     </div>
 </header>
