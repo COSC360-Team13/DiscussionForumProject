@@ -10,12 +10,17 @@
 //     }
 // }
 // Verify valid username
+
+function Reset(){
+    makeClean($("#username"));
+}
+
+
 function checkUsername(event){
     var userValid = document.getElementById("userValid");
     var username = document.getElementById("username");
     if(userValid.innerText === "Unavailable")
     {
-
         makeRed(username);
         event.preventDefault();
     }
@@ -83,6 +88,7 @@ $(document).ready(function(){
         $("#no-img").attr("hidden", true);
     });
     mainForm.submit(function(event){
+
         var requiredInputs = $(".required");
         var error = false;
         for (var i=0; i < requiredInputs.length; i++)
@@ -111,3 +117,4 @@ $(document).ready(function(){
         }
     });
 });
+

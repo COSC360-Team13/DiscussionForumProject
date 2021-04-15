@@ -1,7 +1,7 @@
 <?php
 // Create connection
 try{
-   $connString = "mysql:host=localhost;dbname=DiscussionForumDB";
+   $connString = "mysql:host=localhost;dbname=DiscussionForum";
    $username = "webuser";
    $password = "P@ssw0rd";
    $pdo = new PDO($connString,$username,$password);
