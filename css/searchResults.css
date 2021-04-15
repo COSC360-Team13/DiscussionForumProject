@@ -1,8 +1,12 @@
 .columns{
-    margin-top: 5em;
     display: grid;
-    padding-top: 3em;
+    padding-top: 1em;
     grid-template-columns: 75% auto;
+}
+#keyword{
+    font-size: 20pt;
+    margin-left: 1em;
+    font-weight: bolder;
 }
 .grid-container {
     display: grid;
@@ -63,6 +67,7 @@
 }
 .join button{
     background-color: #92EAA6;
+    color: black;
     outline: none;
     border-radius: 25px;
     width: 100%;
@@ -82,7 +87,16 @@ a{
     background-color: #92EAA6;
     padding: 0.25em;
     margin: auto;
+    color: black;
 }
 .right{
     padding-top: 1em;
+}
+input[type=submit]{
+    background-color: #92EAA6;
+    outline: none;
+    border-radius: 25px;
+    height: auto;
+    padding: 0.25em 2em 0.25em 2em;
+    color: black;
 }
