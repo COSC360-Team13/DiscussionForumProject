@@ -17,7 +17,7 @@
             $return_link = $_SERVER['HTTP_REFERER'];
         }
 
-        $sql = "SELECT * FROM users where username = '$username' AND password=md5('$old_password');";
+        $sql = "SELECT * FROM users where username = '$username' AND password='$old_password';";
 
         $results = $pdo->query($sql);
 
