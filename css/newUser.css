@@ -39,12 +39,20 @@ table{
 }
 .table-head{
     padding-top: 1em;
-    text-align: left;
+    text-align: center;
 }
 label{
     font-weight: bolder;
 }
-input{
+input[type=file]{
+    padding: 0.175em 0 0.175em 0.35em;
+    outline: none;
+    background-color: white;
+    border: solid 2px #92EAA6;
+    border-radius: 10px;
+}
+input[type=text], input[type=password], input[type=email]{
+    padding: 0.175em 0 0.175em 0.35em;
     outline: none;
     background-color: white;
     border: solid 2px #92EAA6;
@@ -56,9 +64,6 @@ input{
 .submitForm{
     padding-top: 1em;
 }
-input[type=text], input[type=password], input[type=email]{
-    padding: 0.175em 0 0.175em 0.35em;
-}
 input[type=reset]{
     padding: 0.25em;
     text-decoration: none;
@@ -67,6 +72,7 @@ input[type=reset]{
     border: none;
     outline: none;
     border-radius: 10px;
+    font-size: 17pt;
 }
 input[type=submit], .grid-entry a{
     padding: 0.25em;
@@ -76,6 +82,7 @@ input[type=submit], .grid-entry a{
     background-color: #92EAA6;
     outline: none;
     border-radius: 10px;
+    font-size: 17pt;
 
 }
 
@@ -85,4 +92,8 @@ input[type=submit]:hover, input[type=reset]:hover, .grid-entry a:hover{
 }
 .red{
     color: red;
+}
+#profile{
+    border-color: #92EAA6;
+    outline: none;
 }

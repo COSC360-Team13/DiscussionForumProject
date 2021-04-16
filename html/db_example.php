@@ -38,7 +38,7 @@
         echo "<br/>Subtopic Table<br/>";
         while ($row = mysqli_fetch_assoc($results))
         {
-          echo $row['title']." ".$row['date']." ".$row['about']." ".$row['category']."<br/>";
+          echo $row['title']." ".$row['date']." ".$row['color']." ".$row['textColor']." ".$row['about']." ".$row['category']."<br/>";
         }
 
         $results = mysqli_query($connection, $sqlpost);

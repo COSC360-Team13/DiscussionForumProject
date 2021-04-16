@@ -5,49 +5,53 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css">
     <title>Login</title>
+    <script type="text/javascript" src="../scripts/validate.js"></script>
+    <?php
+        session_start();
+        if ( isset($_SESSION['error']) && $_SESSION['error'] !== "") {
+            echo "<script type='text/javascript'>alert('".$_SESSION['error']."');\n";
+            echo "window.onload = function(){\n";
+            echo "var pass = document.getElementById(\"password\");\n";
+            echo "var user = document.getElementById(\"username\");\n";
+            echo "makeRed(pass);\n";
+            echo "makeRed(user);\n}";
+            echo "</script>";
+        }
+    ?>
 </head>
-<header>
-    <nav class="navbar">
-        <div class="logo"><a href="mainPage.php"><img src="" alt="HomepageLogo"></a></div>
-        <div class="headertitle">Become A Bear Today!</div>
-    </nav>
-</header>
 <body>
-    <div class="loginmain">
-        <div class="loginlogo"><img src="" alt="BearCaveLogo"></div>
-        <div class="userinput">
-            <form method="post" action="process.php">
-                <fieldset>
-                    <legend>Login:</legend>
+    <div class="grid-container">
+        <div class="grid-entry">
+            <div class="loginlogo"><img src="../images/bearcave.png" alt="BearCaveLogo"></div>
+            <div class="userinput">
+                <form method="post" action="validateLogin.php" id="mainForm">
                     <p>
                         <label>BearName:</label>
                         <br>
-                        <input type="text" name="username" placeholder="Username"/>
+                        <input type="text" name="username" placeholder="Username" class="required" id="username"/>
                     </p>
+                    <br>
                     <p>
                         <label>BearWord:</label>
                         <br>
-                        <input type="password" name="password" placeholder="Password"/>
+                        <input type="password" name="password" placeholder="Password" class="required" id="password"/>
                     </p>
                     <br>
-                    <input type="Submit" value="BearIn">
-                </fieldset>
-            </form>
+                    <input type="Submit" value="BearIn" class="submitForm">
+                </form>
+            </div>
+            <p>
+                Forgot your <a href="">username</a> or <a href="">password</a>?
+            </p>
+            <br>
+            <p>
+                New to The Bear Cave? <a id="signup" href="newUserPage.php">BEAR UP</a>
+            </p>
         </div>
-        <p>
-            Forgot your <a href="">username</a> or <a href="">password</a>?
-        </p>
-        <br>
-        <p>
-            New to The Bear Cave? <a id="signup" href="registrationPage.php">BEAR UP</a>
-        </p>
+        <div class="grid-entry right">
+            <img src="../images/inspire.png" alt="Inspire" class="inspire">
+        </div>
+
     </div>
-    <div class="logininfo">
-        <p>Other than a few maulings, the bond between man and bear is beautiful.  
-            We’ve created a place for that bond to prosper.
-        </p>
-        <img src="" alt="Bearimage1">
-        <img src="" alt="Bearimage2">
-    <div>
 </body>
 </html>

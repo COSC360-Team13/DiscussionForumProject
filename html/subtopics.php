@@ -5,10 +5,14 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/subtopics.css">
     <title>Subtopic</title>
-    <?php include 'navBar.php'; ?>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- In the event that jquery doesnt load through the web. -->
+    <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/joinButton.js"></script>
+    <script type="text/javascript" src="../scripts/subtopics.js"></script>
 </head>
-
-<body>
+<?php include 'navBar.php'; ?>
+<body style="margin-top: 5em">
 <?php
     include 'config.php';
     
@@ -19,6 +23,8 @@
     while($row = $statement->fetch())
     {
         $about = $row['about'];
+        $color = $row['color'];
+        $textColor = $row['textColor'];
         $date = explode(' ', $row['date']);
         $date = explode('-', $date[0]);
         $date = date("jS \of F Y", mktime(0,0,0,$date[1], $date[2], $date[0]));
@@ -27,6 +33,17 @@
     $pdo = null;
     $statement = null;
 ?>
+<script>
+    $(document).ready(function(){
+        $("header").css("background-color", "<?php echo $color; ?>");
+        $(".grid-header").css("background-color", "<?php echo $color; ?>");
+        $(".grid-header").css("color", "<?php echo $textColor; ?>");
+        $(".grid-votes").css("background-color", "<?php echo $color; ?>");
+        $(".grid-votes").css("color", "<?php echo $textColor; ?>");
+        $("footer").css("background-color", "<?php echo $color; ?>");
+        $("footer").css("color", "<?php echo $textColor; ?>");
+    });
+</script>
 <div id="breadcrumbs"></div>
 <div class="columns">
     <!-- About Subtopic -->
@@ -40,73 +57,30 @@
                 <hr/>
                 <?php echo "Created ". $date ?>
                 <br/>
-                <button><a href="#">Join</a></button>
+                <button onclick="join()">Join!</button>
             </div>
         </div>
     </div>
     <!-- Posts of subtopic -->
     <div class="grid-container">
         <div class="grid-header center">
-            <button>Top</button>
-            <button>Newest</button>
-            <button>Create Post</button>
-            <form>
-                <table><tr>
-                    <td><button id="search">Search</button></td>
-                    <td><input id="mysearch" type="text"></td>
-                </tr></table>
-            </form>
-        </div>
-        <div class="grid-entry">
+            <button onclick="showPosts('Top', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments('Top', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>');" >Top</button>
+            <button onclick="showPosts('Newest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments('Newest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>');">Newest</button>
+            <button onclick="showPosts('Oldest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments('Oldest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>');">Oldest</button>
             <?php
-                include 'config.php';
-
-                /*$statement = $pdo->prepare("SELECT pid, ptitle, username, date, count(comment) AS comments 
-                    FROM post LEFT OUTER JOIN comments 
-                    WHERE title=:subtopic
-                    GROUP BY pid, ptitle, username, date");*/
-                $statement = $pdo->prepare("SELECT * FROM post WHERE title=:subtopic");
-                $statement->bindValue(':subtopic', $subtopic, PDO::PARAM_STR);
-                $statement->execute();
-                
-                while($row = $statement->fetch())
-                {
-                    $pid = $row['pid'];
-                    $ptitle = $row['ptitle'];
-                    $pdate = explode(' ', $row['date']);
-                    $pdate = explode('-', $pdate[0]);
-                    $pdate = date("jS \of F Y", mktime(0,0,0,$pdate[1], $pdate[2], $pdate[0]));
-                    $username = $row['username'];
-                    //$comments = $row['comments'];
-                    $comments = 15;
-                    ?>
-                    <div class='grid-item post'>
-                        <div class="grid-votes">
-                            <table>
-                                <tr><td><button class="votes"><img src="" alt="up"></button><td><tr>
-                                <tr><td><?php echo $row['upvotes'] ?></td><tr>
-                                <tr><td><button class="votes"><img src="" alt="up"></button><td><tr>
-                            </table>
-                        </div>
-                        <div class="grid-post">
-                            <table>
-                                <tr>
-                                    <td colspan="2"><?php echo "<a href='posts.php?pid=".$pid."'>My top grizzlies in the world which is pretty cool</a>"; ?></td>
-                                </tr>
-                                <tr class="post-data">
-                                    <td><?php echo "Posted on ".$pdate; ?></td>
-                                    <td><?php echo "By ".$username; ?></td>
-                                </tr>
-                                <tr class="post-btn">
-                                    <td><?php echo "<a href='posts.php?pid=".$pid."'><button>".$comments." comments</button></a>"; ?></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <?php
+                if (isset($_SESSION['user']) && $_SESSION['user'] !== "" ) {
+                    echo "<button><a href='newSubtopic.php'>Create Post</a></button>";
+                }else {
+                    echo "<div></div>";
                 }
-                $pdo = null;
-                $statement = null;
+            ?>
+            <div></div>
+            <button id="search" onclick="showPosts('Top', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments('Top', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>');">Reset</button>
+            <input id="mysearch" type="text" placeholder="Search for posts..." onkeyup="showPosts($('#mysearch').val(), '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments($('#mysearch').val(), '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>')">
+        </div>
+        <div class="grid-entry" id="center-posts">
+            <?php
+                include "subtopicResults.php";
             ?>
         </div>
     </div>
@@ -115,18 +89,13 @@
         <div class="grid-header">
             <h2>Top Comments</h2>
         </div>
-        <div class="grid-entry">
-            <div class="grid-item">
-                <div class="top-comment">
-                    3
-                </div>
-            </div>
+        <div class="grid-entry" id="right-comments">
+            <?php
+                include "subtopicCommentResults.php";
+            ?>
         </div>
     </div>
 </div>
-
 </body>
-<footer>
-
-</footer>
+    <?php include 'footer.php'; ?>
 </html>

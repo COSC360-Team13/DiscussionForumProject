@@ -6,11 +6,11 @@
         <title>Subtopic</title>
     </head>
     <?php include 'navBar.php'; ?>
-    <body>
+    <body style="margin-top: 7em">
         <div class="content">    
             <h1>This subtopic doesn't exist. Would you like to create it?</h1>
             <button class='newTopic'>
-                <a href='createSubtopic.php'>Create Subtopic</a>
+                <a href='newSubtopic.php'>Create Subtopic</a>
             </button>
             <?php
             /*
@@ -29,4 +29,5 @@
             ?>
         </div>
     </body>
+        <?php include 'footer.php'; ?>
 </html>
