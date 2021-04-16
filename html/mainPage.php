@@ -3,6 +3,10 @@
 <head>
     <link rel="stylesheet" href="../css/mainPage.css">
     <link rel="stylesheet" href="../css/reset.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- In the event that jquery doesnt load through the web. -->
+    <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../scripts/createNewTopicButton.js"></script>
     <?php include 'navBar.php';?>
     <title>Home Page</title>
 </head>
@@ -36,7 +40,7 @@
         <div class="grid-header center">
                 <span></span>
                 <h2>Subtopics</h2>
-                <button class="newTopic">Create subtopic</button>
+                <button class="newTopic" onclick="createNewTopic()">Create subtopic +</button>
         </div>
         <div class="grid-entry">
             <?php
