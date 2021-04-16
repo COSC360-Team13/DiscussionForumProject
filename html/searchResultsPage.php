@@ -60,22 +60,23 @@ include 'navBar.php';
                     }
                     $statement = $pdo->prepare($sql);
                     $statement->execute(["%$subtopic%"]);
-                    while($row = $statement->fetch())
+                    if($statement->rowCount()>0)
                     {
-                        // TODO: update link to redirect to correct page
-                        echo "<div class=\"grid-item\">";
+                        while($row = $statement->fetch())
+                        {
+                            // TODO: update link to redirect to correct page
                             echo "<a href=\"subtopics.php?title=".$row["title"]."\">";
-                                echo "<div class=\"separator\">";
-                                    echo "<div class=\"image\">";
-                                    echo "</div>";
+                                echo "<div class=\"grid-item\">";
                                     echo "<div class=\"title\">".$row["title"];
                                         echo "<div class=\"about\">".$row["about"];
                                         echo "</div>";
                                     echo "</div>";
                                 echo "</div>";
                             echo "</a>";
-                            echo "<div class=\"join\"><button onclick=\"join()\">Join</button></div>";
-                        echo "</div>";
+                        }
+                    }
+                    else{
+                       echo "<h2 class=\"no-results\">No results found!</h2>";
                     }
                     $pdo = null;
                     $results = null;
