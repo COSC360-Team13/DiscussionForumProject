@@ -24,6 +24,7 @@
         $sqlusers = "SELECT * FROM users;";
         $sqlsubtopic = "SELECT * FROM subtopic;";
         $sqlpost = "SELECT * FROM post;";
+        $sqllikedposts = "SELECT * FROM likedPosts;";
 
         $results = mysqli_query($connection, $sqlusers);
         // fetch user table
@@ -46,7 +47,15 @@
         echo "<br/>Post Table<br/>";
         while ($row = mysqli_fetch_assoc($results))
         {
-          echo $row['pid']." ".$row['ptitle']." ".$row['username']." ".$row['date']." ".$row['comment']." ".$row['upvotes']." ".$row['downvotes']." ".$row['title']."<br/>";
+          echo $row['pid']." ".$row['ptitle']." ".$row['username']." ".$row['date']." ".$row['upvotes']." ".$row['downvotes']." ".$row['title']."<br/>";
+        }
+
+        $results = mysqli_query($connection, $sqllikedposts);
+        // fetch post table
+        echo "<br/>LikedPosts Table<br/>";
+        while ($row = mysqli_fetch_assoc($results))
+        {
+          echo $row['id']." ".$row['username']." ".$row['pid']."<br/>";
         }
           
         mysqli_free_result($results);

@@ -95,4 +95,4 @@ html/._mainPage.php
 ._footer.css
 
 # Don't include photos
-images/**/*.png
+

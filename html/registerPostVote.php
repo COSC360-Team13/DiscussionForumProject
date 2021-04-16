@@ -1,15 +1,15 @@
 <?php
     session_start();
     if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['user']) && $_SESSION['user'] !== ""){
-        $username = $_SESSION['user'];
+        $user = $_SESSION['user'];
         $pid = $_GET["pid"];
         $direction = $_GET["direction"];
-        
-        include 'config.php';
 
+        include 'config.php';
+        
         $sql = "SELECT COUNT(*) FROM likedPosts WHERE username = ? AND pid = ?";
         $statement = $pdo->prepare($sql);
-        $statement->execute([$username, $pid]);
+        $statement->execute([$user, $pid]);
         $column = $statement->fetchColumn();
     
         if($column > 0) {
@@ -27,7 +27,7 @@
 
             $sql = "INSERT INTO likedPosts (username, pid) VALUES (?, ?)";
             $statement = $pdo->prepare($sql);
-            $statement->execute([$username, $pid]);
+            $statement->execute([$user, $pid]);
             
             $pdo = null;
             $results = null;

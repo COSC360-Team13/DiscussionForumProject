@@ -85,9 +85,10 @@ CREATE TABLE `post` (
 -- Table structure for table `likedPosts`
 --
 CREATE TABLE `likedPosts` (
+    `id` INT NOT NULL AUTO_INCREMENT,
     `username` varchar(255) NOT NULL,
     `pid` INT NOT NULL,
-    PRIMARY KEY (`username`,`pid`),
+    PRIMARY KEY (`id`),
     FOREIGN KEY (`pid`) REFERENCES `post`(`pid`)
         ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
