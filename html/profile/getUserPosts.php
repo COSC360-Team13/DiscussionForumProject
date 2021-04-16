@@ -8,7 +8,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] !== "" ){
     //now we do posts
     $sql = "SELECT ptitle, post.upvotes, post.downvotes, COUNT(cid)
             FROM post JOIN comments ON comments.postid = post.pid
-            WHERE post.username='dvader'
+            WHERE post.username='$username'
             GROUP BY ptitle
             ORDER BY post.date DESC;
             LIMIT 3;";
