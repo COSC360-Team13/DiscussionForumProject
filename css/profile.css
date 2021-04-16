@@ -22,6 +22,11 @@ thead {
 .edit{
     text-align: right;
     color: #ea92d6;
+    border: none;
+    background-color: white;
+}
+.edit:hover{
+    color: #f340c9;
 }
 /* unvisited link */
 a:link {
@@ -67,6 +72,9 @@ tfoot td{
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+tbody{
+    background-color: #EFEFEF;
 }
 
   

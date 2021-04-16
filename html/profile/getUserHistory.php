@@ -21,11 +21,10 @@ if(isset($_SESSION['user']) && $_SESSION['user'] !== "" ){
         $sign = "";
         $color = "black";
         if ($votes > 0){
-            $sign = "+ ";
+            $sign = "+";
             $color = "green";
         }
         else{
-            $sign = "- ";
             $color ="red";
         }
 
@@ -34,7 +33,6 @@ if(isset($_SESSION['user']) && $_SESSION['user'] !== "" ){
         echo "<tr><td class=\"votes\">Votes:</td>";
         echo "<td style=\"color:".$color."\">".$sign.$votes."</td>";
         echo "<td>".$comment."</td></tr>";
-
     }
     
 }

@@ -5,6 +5,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/newUser.css">
+    <link href='https://fonts.googleapis.com/css?family=Ranga' rel='stylesheet'>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- In the event that jquery doesnt load through the web. -->
     <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
@@ -55,7 +56,7 @@
             </form>
         </div>
         <div class="grid-entry right">
-            <h2>Stuff</h2>
+            <img src="../images/BearsPeopleHappiness.png" alt="BearsPeopleHappiness" class="inspire">
         </div>
     </div>
 </body>

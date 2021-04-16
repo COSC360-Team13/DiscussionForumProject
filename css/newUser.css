@@ -22,6 +22,7 @@ Header 2 in each column has font size of 25pt
 .grid-entry h2{
     padding-top: 1em;
     font-size: 25pt;
+    font-family: Ranga;
 }
 /*
 Right-side column
@@ -43,6 +44,7 @@ table{
 }
 label{
     font-weight: bolder;
+    font-family: Ranga;
 }
 input[type=file]{
     padding: 0.175em 0 0.175em 0.35em;
@@ -96,4 +98,9 @@ input[type=submit]:hover, input[type=reset]:hover, .grid-entry a:hover{
 #profile{
     border-color: #92EAA6;
     outline: none;
+}
+.inspire{
+    position: -webkit-sticky; /*safari*/
+    position: sticky;
+    top: 0;
 }

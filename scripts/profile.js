@@ -62,6 +62,7 @@ function addChangeButtons(){
             form.action = "profile\\updateUsername.php";
             form.id = "mainForm";
             var newRow = document.createElement("tr");
+            newRow.id = "newRow";
             userRow.after(newRow);
             var label = document.createElement("label");
             var input = document.createElement("input");
@@ -72,12 +73,33 @@ function addChangeButtons(){
             label.innerHTML = "New Username:";
             input.type = "text";
             input.name="username";
-            input.class="required";
+            input.classList.add("required");
             input.id="username";
             var submit = document.createElement("input");
             form.append(submit);
             submit.type="submit";
             submit.value="Submit";
+        }
+        var form = document.getElementById("mainForm");
+        form.onsubmit = function(e){
+            var requiredInputs = document.querySelectorAll(".required");
+            var err = false;
+            for (var i=0; i < requiredInputs.length; i++){
+                if( isBlank(requiredInputs[i])){
+                    err |= true;
+                    makeRed(requiredInputs[i]);
+                }
+                else{
+                    makeClean(requiredInputs[i]);
+                }
+            }
+            if (err == true){
+                e.preventDefault();
+            }
+            else{
+                console.log('checking match');
+                checkPasswordMatch(e);
+            }
         }
     }
 
@@ -97,6 +119,7 @@ function addChangeButtons(){
             form.action = "profile\\updatePassword.php";
             form.id = "mainForm";
             var newRow = document.createElement("tr");
+            newRow.id="newRow";
             var p1 = document.createElement("p");
             var p2 = document.createElement("p");
             var p3 = document.createElement("p");
@@ -129,9 +152,9 @@ function addChangeButtons(){
             input_old.name="oldpassword";
             input_new.name="newpassword";
             input_confirm.name="confirmpassword";
-            input_old.class="required";
-            input_new.class="required";
-            input_confirm.class="required";
+            input_old.classList.add("required");
+            input_new.classList.add("required");
+            input_confirm.classList.add("required");
             var submit = document.createElement("input");
             form.append(submit);
             submit.type="submit";
@@ -176,6 +199,7 @@ function addChangeButtons(){
             form.action = "profile\\updateEmail.php";
             form.id = "mainForm";
             var newRow = document.createElement("tr");
+            newRow.id="newRow";
             emailRow.after(newRow);
             var label = document.createElement("label");
             var input = document.createElement("input");
@@ -186,7 +210,7 @@ function addChangeButtons(){
             label.innerHTML = "New Email:";
             input.type = "email";
             input.name="email";
-            input.class="required";
+            input.classList.add("required");
             input.id="email";
             var submit = document.createElement("input");
             form.append(submit);
@@ -194,6 +218,27 @@ function addChangeButtons(){
             submit.value="Submit";
             console.log('checking match');
 
+        }
+        var form = document.getElementById("mainForm");
+        form.onsubmit = function(e){
+            var requiredInputs = document.querySelectorAll(".required");
+            var err = false;
+            for (var i=0; i < requiredInputs.length; i++){
+                if( isBlank(requiredInputs[i])){
+                    err |= true;
+                    makeRed(requiredInputs[i]);
+                }
+                else{
+                    makeClean(requiredInputs[i]);
+                }
+            }
+            if (err == true){
+                e.preventDefault();
+            }
+            else{
+                console.log('checking match');
+                checkPasswordMatch(e);
+            }
         }
     }
 
@@ -206,17 +251,17 @@ function addChangeButtons(){
     else if (userRow.childElementCount == 3 && passRow.childElementCount < 3 && emailRow.childElementCount<3){
         passRow.append(passButton);
         emailRow.append(emailButton);
-        document.getElementById("mainForm").remove();
+        document.getElementById("newRow").remove();
     }
     else if (userRow.childElementCount < 3 && passRow.childElementCount == 3 && emailRow.childElementCount<3){
         emailRow.append(emailButton);
         userRow.append(userButton);
-        document.getElementById("mainForm").remove();
+        document.getElementById("newRow").remove();
     }
     else if (userRow.childElementCount < 3 && passRow.childElementCount < 3 && emailRow.childElementCount==3){
         userRow.append(userButton);
         passRow.append(passButton);
-        document.getElementById("mainForm").remove();
+        document.getElementById("newRow").remove();
     }
        
 }
@@ -230,10 +275,10 @@ function isBlank(inputField)
       return false;
   }
   
-  function makeRed(inputDiv){
-      inputDiv.style.borderColor="#AA0000";
-  }
+function makeRed(inputDiv){
+    inputDiv.style.borderColor="#AA0000";
+}
   
-  function makeClean(inputDiv){
-      inputDiv.style.borderColor="#FFFFFF";
-  }
+function makeClean(inputDiv){
+    inputDiv.style.borderColor="#FFFFFF";
+}
