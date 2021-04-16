@@ -8,6 +8,7 @@
     <!-- In the event that jquery doesnt load through the web. -->
     <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../scripts/joinButton.js"></script>
+    <script type="text/javascript" src="../scripts/createNewTopicButton.js"></script>
 </head>
 <?php
 include 'navBar.php';
@@ -119,7 +120,7 @@ include 'navBar.php';
         <div class="grid-entry right">
             <img src="" alt="CreateNewTopic">
             <p>Have an idea for a new community?</p>
-            <a href='newSubtopic.php'><button class="newTopic">Create subtopic +</button></a>
+            <button class="newTopic" onclick="createNewTopic()">Create subtopic +</button>
         </div>
     </div>
 </div>
