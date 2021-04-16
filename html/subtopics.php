@@ -45,6 +45,7 @@
     });
 </script>
 <div id="breadcrumbs"></div>
+<div id="subtopic-title"><i><b>Welcome to: <?php echo $subtopic; ?></b></i></div>
 <div class="columns">
     <!-- About Subtopic -->
     <div class="grid-container">

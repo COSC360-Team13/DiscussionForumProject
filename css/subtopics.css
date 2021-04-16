@@ -1,6 +1,11 @@
+#subtopic-title{
+    padding-top: 1.5em;
+    text-align: center;
+    font-size: 24pt;
+}
 .columns{
     display: grid;
-    padding-top: 3em;
+    padding-top: 0.5em;
     grid-template-columns: 25% 50% 25%;
 }
 .grid-container {
