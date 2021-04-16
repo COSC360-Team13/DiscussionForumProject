@@ -1,11 +1,35 @@
+// function checkImage(event){
+//     var image = document.getElementById("profile");
+//     console.log(image.value);
+//     var imageIndicator = document.getElementById("no-img");
+//     if(image.value === "None"){
+//         makeRed(image);
+//         imageIndicator.setAttribute("class", "red");
+//         imageIndicator.removeAttribute("hidden");
+//         event.preventDefault();
+//     }
+// }
 // Verify valid username
+
+function Reset(){
+    makeClean($("#username"));
+}
+
+
 function checkUsername(event){
     var userValid = document.getElementById("userValid");
     var username = document.getElementById("username");
     if(userValid.innerText === "Unavailable")
     {
-
         makeRed(username);
+        event.preventDefault();
+    }
+}
+function checkEmail(event){
+    var emailValid = document.getElementById("emailValid");
+    var email = document.getElementById("email");
+    if(emailValid.innerText === "Email already in use"){
+        makeRed(email);
         event.preventDefault();
     }
 }
@@ -35,7 +59,7 @@ function checkPasswordMatch(event)
 // Check empty fields
 function isBlank(inputField)
 {
-    if (inputField.value == "")
+    if (inputField.value == "" || inputField.value == "None")
     {
         return true;
     }
@@ -51,8 +75,20 @@ function makeClean(inputDiv){
 }
 // Event listener to prevent submission
 $(document).ready(function(){
+    mainForm = $("#mainForm");
+    mainForm.on("click", "input[type='reset']", function(){
+        var requiredInputs = $(".required");
+        for(var i =0; i < requiredInputs.length; i++)
+            makeClean(requiredInputs[i]);
 
-    $("#mainForm").submit(function(event){
+        $("#emailValid").html("");
+        $("#userValid").html("");
+        $("#no-match").attr("hidden",true);
+        $("#profile-image").hide();
+        $("#no-img").attr("hidden", true);
+    });
+    mainForm.submit(function(event){
+
         var requiredInputs = $(".required");
         var error = false;
         for (var i=0; i < requiredInputs.length; i++)
@@ -73,9 +109,12 @@ $(document).ready(function(){
         }
         else
         {
-            console.log('checking match');
+            // console.log('checking match');
             checkPasswordMatch(event);
             checkUsername(event);
+            checkEmail(event);
+            checkImage(event);
         }
     });
 });
+

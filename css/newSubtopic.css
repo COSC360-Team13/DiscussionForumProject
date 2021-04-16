@@ -1,0 +1,210 @@
+.columns{
+    display: grid;
+    padding-top: 3em;
+    grid-template-columns: 30% 30% 40%;
+}
+.grid-container {
+    grid-template-rows: auto auto auto;
+    background-color: white;
+    padding: 0.5em;
+}
+.grid-header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #92EAA6;
+    border-radius: 10px;
+    padding: 0 1em;
+    height: 65px;
+    font-size: 18pt;
+}
+.grid-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #EFEFEF;
+    text-align: flex-start;
+    border-radius: 10px;
+    margin-top: 1em;
+    height: auto;
+    width: auto;
+}
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em auto 0.5em auto;
+    width: 95%;
+    height: 50px;
+    font-size: 15pt;
+    border-radius: 10px;
+    background-color: white;
+}
+h2{
+    vertical-align: middle;
+    margin: auto;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.grid-item:hover{
+    outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.about{
+    padding: 1em 1em;
+}
+.about button{
+    outline: none;
+    border-radius: 5px;
+    padding: 0.35em;
+    margin: 2em auto 0;
+    width: auto;
+    background-color: lightcyan;
+}
+.center button{
+    outline: none;
+    border-radius: 25px;
+    padding: 0.35em;
+    margin: auto;
+    width: 80%;
+}
+#search{
+    width: 6em;
+    margin: auto;
+}
+button:hover{
+    outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.center form{
+    margin: auto;
+}
+.post{
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+.grid-votes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #92EAA6;
+    height: 100%;
+}
+input[type=text] {
+    outline: none;
+    border: none;
+    padding: 0.175em 0em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-image: url('');
+    border-radius: 20px;
+    font-size: 12pt;
+    width: inherit;
+}
+.grid-post{
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0.5em;
+}
+.post-data td{
+    font-size: 11pt;
+    text-align: left;
+}
+.post-btn{
+    text-align: left;
+}
+.post-btn a button{
+    background: transparent;
+    border: none;
+}
+.post-btn a button:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: #92EAA6;
+}
+.top-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#category-select{
+    align-items: center;
+    background: #EFEFEF;
+    text-align: center;
+    border-radius: 10px;
+    height: 640px;
+    width: 100%;
+    border: none;
+    overflow: hidden;
+}
+#category-select::-moz-focus-inner {
+    border: 0;
+}
+#category-select:focus {
+    outline: none;
+}
+#category-select option:hover{
+    outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#category-select option{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em auto 0.5em auto;
+    width: 95%;
+    height: 50px;
+    font-size: 17pt;
+    border-radius: 10px;
+    background-color: white;
+}
+#title{
+    outline: none;
+    border: none;
+    margin: 0.5em 1em;
+    padding: 0.175em 0em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: 18pt;
+    width: 90%;
+    height: auto;
+}
+#color-select{
+    margin: 0.5em 1em;
+    padding: 0.175em 0em 0.175em 0.5em;
+    width: 70%;
+    border: none;
+}
+#color-select input{
+    border: none;
+}
+#color-select label{
+    vertical-align: 10%;
+}
+#about{
+    resize: vertical;
+    outline: none;
+    border: none;
+    margin: 0.5em 1em;
+    padding: 0.175em 0.5em 0.175em 0.5em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: 12pt;
+    width: 90%;
+    height: 200px;
+}
+#submit{
+    outline: none;
+    border: none;
+    border-radius: 25px;
+    padding: 0.35em;
+    margin: auto;
+    width: 100%;
+    font-size: 14pt;
+}
+#submit:hover{
+    background-color: lightgrey;
+}

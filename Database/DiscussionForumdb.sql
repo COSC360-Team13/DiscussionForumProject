@@ -32,32 +32,49 @@ CREATE TABLE `users` (
     `lastName` varchar(255) NOT NULL,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
+    `image` varchar(100),
     UNIQUE (`email`),
     PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `category`
+--
+CREATE TABLE `category` (
+    `category` varchar(255) NOT NULL,
+    PRIMARY KEY (`category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `subtopic`
 --
 CREATE TABLE `subtopic` (
-    `title` varchar(255) NOT NULL,
+    `title` varchar(20) NOT NULL,
     `date` DATETIME,
+    `color` varchar(20),
+    `textColor` varchar(20),
     `about` varchar (1000) NOT NULL,
     `category` varchar (255) NOT NULL,
-    PRIMARY KEY (`title`)
+    PRIMARY KEY (`title`),
+    FOREIGN KEY (`category`) REFERENCES `category`(`category`)
+        ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `posts`
 --
 CREATE TABLE `post` (
+    `pid` INT NOT NULL AUTO_INCREMENT,
+    `ptitle` varchar(100) NOT NULL,
     `username` varchar(255) NOT NULL,
+    `image` varchar(100),
+    `link` varchar(100),
+    `content` varchar(1000),
     `date` DATETIME,
-    `comment` VARCHAR(1500) NOT NULL,
     `upvotes` INT,
     `downvotes` INT,
     `title` VARCHAR(255) NOT NULL,
-    PRIMARY KEY(`username`),
+    PRIMARY KEY(`pid`),
     FOREIGN KEY (`username`) REFERENCES `users`(`username`)
         ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (`title`) REFERENCES `subtopic`(`title`)
@@ -65,35 +82,80 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Table structure for table 'comments'
+
+-- Table structure for table `likedPosts`
 --
-CREATE TABLE 'comments' (
-  'cid' int(11) not null AUTO_INCREMENT PRIMARY KEY,
-  'username' varchar(255) NOT NULL,
-  'date' DATETIME NOT NULL,
-  'message' TEXT NOT NULL
-);
+CREATE TABLE `likedPosts` (
+    `username` varchar(255) NOT NULL,
+    `pid` INT NOT NULL,
+    PRIMARY KEY (`username`,`pid`),
+    FOREIGN KEY (`pid`) REFERENCES `post`(`pid`)
+        ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `comments`
+--
+CREATE TABLE `comments` (
+    `cid` INT NOT NULL AUTO_INCREMENT,
+    `username` varchar(255) NOT NULL,
+    `comment` varchar(1500) NOT NULL,
+    `date` DATETIME,
+    `upvotes` INT,
+    `downvotes` INT,
+    `postid` INT NOT NULL,
+    `parentid` INT,
+    PRIMARY KEY(`cid`),
+    FOREIGN KEY (`username`) REFERENCES `users`(`username`)
+        ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (`postid`) REFERENCES `post`(`pid`)
+        ON UPDATE CASCADE ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Dumping data for table `users`
 --
-INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES
-('dvader', 'darth', 'vader', 'vader@dark.force', 'dvader123');
-INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES
-('jtams', 'jeff', 'tams', 'jtams@telus.net', 'jdog123');
-INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES
-('blue_bear', 'Blue', 'Bear', 'bearsrkewl@gmail.com', '1234');
+INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('dvader', 'darth', 'vader', 'vader@dark.force', 'dvader123');
+INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('jtams', 'jeff', 'tams', 'jtams@telus.net', 'jdog123');
+INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('blue_bear', 'Blue', 'Bear', 'bearsrkewl@gmail.com', '1234');
+--
+-- Dumping data for table `category`
+--
+INSERT INTO `category` (`category`) VALUES ('Cute');
+INSERT INTO `category` (`category`) VALUES ('Furry');
+INSERT INTO `category` (`category`) VALUES ('Discussions');
+INSERT INTO `category` (`category`) VALUES ('Entertainment');
+INSERT INTO `category` (`category`) VALUES ('Humor');
+INSERT INTO `category` (`category`) VALUES ('Learning');
+INSERT INTO `category` (`category`) VALUES ('Technology');
+INSERT INTO `category` (`category`) VALUES ('Sports');
+INSERT INTO `category` (`category`) VALUES ('Lifestyle');
+INSERT INTO `category` (`category`) VALUES ('News');
 --
 -- Dumping data for table `subtopic`
 --
-INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Grizzlies', '2021-04-06', 'This subtopic is all about our love of Grizzly bears!', 'Furry');
-INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Black Bear', '2021-03-21', 'This subtopic is all about our love of Black Bears!', 'Furry');
-INSERT INTO `subtopic` (`title`, `date`, `about`, `category`)VALUES ('Kermode Bears', '2021-03-21', 'This subtopic is all about our love of Kermode Bears!', 'Cute');
+INSERT INTO `subtopic` (`title`, `date`, `color`, `textColor`, `about`, `category`) VALUES ('Grizzlies', '2021-04-06', 'brown', 'white', 'This subtopic is all about our love of Grizzly bears!', 'Furry');
+INSERT INTO `subtopic` (`title`, `date`, `color`, `textColor`, `about`, `category`) VALUES ('Black Bear', '2021-03-21', 'darkgoldenrod', 'black', 'This subtopic is all about our love of Black Bears!', 'Furry');
+INSERT INTO `subtopic` (`title`, `date`, `color`, `textColor`, `about`, `category`) VALUES ('Kermode Bears', '2021-03-21', 'burlywood', 'black', 'This subtopic is all about our love of Kermode Bears!', 'Cute');
 --
 -- Dumping data for table `posts`
 --
-INSERT INTO `post` (`username`, `date`, `comment`, `title`) VALUES ('dvader', '2021-04-06', 'I love Grizzly bears, they look so cute and cuddly', 'Grizzlies');
-INSERT INTO `post` (`username`, `date`, `comment`, `title`) VALUES ('blue_bear', '2021-04-06', 'I love Black bears, they look so cute and cuddly', 'Black Bear');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [dec]', 'dvader', '2020-12-09', 20, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [jan]', 'dvader', '2021-01-03', 30, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [feb]', 'dvader', '2021-02-02', 24, 7, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [mar]', 'dvader', '2021-03-05', 21, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [april]', 'dvader', '2021-04-06', 2, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [nov]', 'dvader', '2020-11-11', 6, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [oct]', 'dvader', '2020-10-03', 100, 26, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [sept]', 'dvader', '2020-09-06', 17, 5, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('Black bear I saw in my backyard', 'blue_bear', '2021-04-06', 17, 4, 'Black Bear');
+--
+-- Dumping data for table `comments`
+--
+INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `postid`) VALUES ('dvader', 'I love Grizzly bears, they look so cute and cuddly', '2021-02-07', 7, 3, 1);
+INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `postid`) VALUES ('dvader', 'Grizzlies are pretty neat', '2021-01-07', 14, 4, 3);
+INSERT INTO `comments` (`username`, `comment`, `date`, `upvotes`, `downvotes`, `postid`) VALUES ('blue_bear', 'I love Black bears, they look so cute and cuddly', '2021-04-07', 10, 2, 9);
 --
 -- Indexes for dumped tables
 --

@@ -1,29 +1,52 @@
-header{
-    background: #92EAA6;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
+.grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: white;
 }
-.navbar {
-    align-items: center;
-    padding: 1em 2em 1em 2em;
-    height: 60px;
-    margin: auto;
+.grid-entry{
+    padding-top: 1em;
+    text-align: center;
+    font-size: 15pt;
+    height: 100%;
     width: auto;
 }
-.headertitle{
-    display: flex;
-    justify-content: center;
+.right{
+    background-color: #92EAA6;
+    color: white;
+}
+.inspire{
+    width: 700px;
+    height: 700px;
+    object-fit: contain;
+}
+input{
+    outline: none;
+    background-color: white;
+    border: solid 2px #92EAA6;
+    border-radius: 10px;
+    font-size: 15pt;
+    height: auto;
+    width: auto;
+}
+label{
+    font-family: Ranga;
+    font-style: normal;
     font-weight: bold;
-    font-size: 36px;
 }
-.logo{
-    display: flex;
-    justify-content: flex-start;
+.submitForm{
+    padding-top: 1em;
 }
-.loginmain{
-    border: 1pt solid black;
-    text-align: center;
+input[type=submit]{
+    padding: 0.25em;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #92EAA6;
+    outline: none;
+    border-radius: 10px;
+
 }
-.logininfo{
-    border: 1pt solid red;
+input[type=submit]:hover{
+    outline: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
