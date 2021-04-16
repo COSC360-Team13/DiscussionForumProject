@@ -22,7 +22,6 @@
                 $statement->execute([$title, $date, $color, $textColor, $about, $category]);
                 echo "<div class=\"welcome\"><h2>Thank you for contributing to the Bear Cave</h2></div>";
                 echo "<div class=\"returnButton\"><a href=\"subtopics.php?title=$title\">Go to your Subtopic</a></div>";
-                echo "<div class=\"returnButton\"><a href=\"mainPage.php\">Return to Homepage</a></div>";
                 
             }
             else
@@ -31,4 +30,5 @@
             }
         ?>
 </body>
+    <?php include 'footer.php'; ?>
 </html>

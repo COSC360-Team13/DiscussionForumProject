@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/newSubtopic.css">
-    <title>Home Page</title>
+    <title>Create Subtopic</title>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- In the event that jquery doesnt load through the web. -->
     <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
@@ -76,7 +76,5 @@
     </div>
 </form>
 </body>
-<footer>
-
-</footer>
+    <?php include 'footer.php'; ?>
 </html>

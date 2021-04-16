@@ -4,8 +4,6 @@
     grid-template-columns: 25% 50% 25%;
 }
 .grid-container {
-    display: grid;
-    grid-template-rows: auto auto auto;
     background-color: white;
     padding: 0.5em;
 }
@@ -20,13 +18,11 @@
     font-size: 18pt;
 }
 .grid-entry {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: #EFEFEF;
     text-align: center;
     border-radius: 10px;
     margin-top: 1em;
+    padding: 0.1em 0;
     height: auto;
     width: auto;
 }
@@ -58,15 +54,15 @@ a{
 }
 .about button{
     outline: none;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 0.35em;
     margin: 2em auto 0;
-    width: auto;
+    width: 25%;
     background-color: lightcyan;
 }
 .center{
     display: grid;
-    grid-template-columns: 15% 15% 15% 60%;
+    grid-template-columns: 12% 12% 12% 12% 7% 12% 35%;
 }
 .center button{
     outline: none;
@@ -75,8 +71,8 @@ a{
     margin: auto;
     width: 80%;
 }
-#search{
-    width: 6em;
+#mysearch{
+    width: 80%;
     margin: auto;
 }
 button:hover{
@@ -91,17 +87,25 @@ button:hover{
     grid-template-columns: 10% 90%;
 }
 .grid-votes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: auto;
     border-radius: 10px;
     background-color: #92EAA6;
     height: 100%;
 }
+.grid-votes button{
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+.grid-votes button:hover{
+    outline: none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+}
 input[type=text] {
     outline: none;
     border: none;
-    margin: 0 1em;
     padding: 0.175em 0em 0.175em 0.5em;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     background-image: url('');
@@ -110,13 +114,19 @@ input[type=text] {
     width: inherit;
 }
 .grid-post{
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-rows: auto;
+    text-align: left;
     padding: 0 0 0 0.5em;
 }
-.post-data td{
-    font-size: 11pt;
+.post-title td{
     text-align: left;
+}
+.post-data{
+    display: grid;
+    grid-template-columns: 16em auto;
+    font-size: 11pt;
+    padding-top: 0.25em;
 }
 .post-btn{
     text-align: left;
@@ -131,8 +141,10 @@ input[type=text] {
     background-color: #92EAA6;
 }
 .top-comment{
+    padding: 0.25em;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 12pt;
 }
