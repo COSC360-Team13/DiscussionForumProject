@@ -82,7 +82,6 @@ CREATE TABLE `post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
-
 -- Table structure for table `likedPosts`
 --
 CREATE TABLE `likedPosts` (
@@ -111,7 +110,6 @@ CREATE TABLE `comments` (
     FOREIGN KEY (`postid`) REFERENCES `post`(`pid`)
         ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 --
 -- Dumping data for table `users`
