@@ -20,11 +20,16 @@ include 'navBar.php';
 <?php
     if($_SERVER["REQUEST_METHOD"] === "GET"){
         $subtopic = $_GET["searchTerm"];
+        $category = $_GET["category"];
         $filter = $_GET["filter"]?? "Relevance";
     }
     echo "<img src='../images/search.png'>";
     if($subtopic != ""){
         echo "<h2>".$subtopic."</h2>";
+    }
+    else if ($category != "")
+    {
+        echo "<h2>".$category."</h2>";
     }
     else
     {
@@ -50,16 +55,16 @@ include 'navBar.php';
         </form>
             <?php include 'config.php';
                 echo "<div class=\"grid-entry\">";
-                $sql = "SELECT title, about FROM subtopic WHERE title LIKE ?";
                  if(isset($subtopic)){
+                    $sql = "SELECT title, about FROM subtopic WHERE title LIKE ?";
                     if(isset($filter)){
                         if($filter == "Newest")
                             $sql = $sql." ORDER BY date DESC, category DESC";
                         else if ($filter == "Oldest")
                             $sql = $sql." ORDER BY date ASC, category ASC";
+                        $statement = $pdo->prepare($sql);
+                        $statement->execute(["%$subtopic%"]);
                     }
-                    $statement = $pdo->prepare($sql);
-                    $statement->execute(["%$subtopic%"]);
                     if($statement->rowCount()>0)
                     {
                         while($row = $statement->fetch())
@@ -81,8 +86,34 @@ include 'navBar.php';
                     $pdo = null;
                     $results = null;
                  }
-                 echo "</div>";
-                    ?>
+                 else if (isset($category)){
+                    $sql = "SELECT title, about FROM subtopic WHERE category LIKE ?";
+                    if(isset($filter)){
+                        if($filter == "Newest")
+                            $sql = $sql." ORDER BY date DESC, category DESC";
+                        else if ($filter == "Oldest")
+                            $sql = $sql." ORDER BY date ASC, category ASC";
+                        $statement = $pdo->prepare($sql);
+                        $statement->execute(["%$category%"]);
+                        }
+                        if($statement->rowCount()>0)
+                        {
+                            while($row = $statement->fetch())
+                            {
+                                // TODO: update link to redirect to correct page
+                                echo "<a href=\"subtopics.php?title=".$row["title"]."\">";
+                                    echo "<div class=\"grid-item\">";
+                                        echo "<div class=\"title\">".$row["title"];
+                                            echo "<div class=\"about\">".$row["about"];
+                                                echo "</div>";
+                                            echo "</div>";
+                                    echo "</div>";
+                                echo "</a>";
+                            }
+                        }
+                 }
+            echo "</div>";
+            ?>
     </div>
     <div class="grid-container">
         <div class="grid-entry right">
