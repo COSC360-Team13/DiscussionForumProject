@@ -64,6 +64,15 @@ CREATE TABLE `post` (
         ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Table structure for table 'comments'
+--
+CREATE TABLE 'comments' (
+  'cid' int(11) not null AUTO_INCREMENT PRIMARY KEY,
+  'username' varchar(255) NOT NULL,
+  'date' DATETIME NOT NULL,
+  'message' TEXT NOT NULL
+);
 
 --
 -- Dumping data for table `users`
