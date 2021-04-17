@@ -33,7 +33,17 @@
                 echo "<div class=\"grid-entry\">";
                 echo "<p class=\"post-content\">".$row["content"]."</p>";
                 echo "<div class=\"grid-item\">";
-
+                if (isset($_SESSION['user']) && $_SESSION['user'] !== "" ){
+                    $user = $_SESSION['user'];
+                    echo "<form method=\"POST\"id=\"mainForm\" action=\"commentInsert.php\">";
+                    echo "<textarea name=\"comment\" placeholder=\"Begin typing your comment....\"></textarea><br>";
+                    echo "<input type=\"hidden\" name=\"pid\" value=\"".$pid."\">";
+                    echo "<input type=\"submit\" name=\"submit\" value=\"Submit\"></textarea>";
+                    echo "</form>";
+                }
+                else{
+                    echo "<button><a href=\"LoginPage.php\">Login</a></button>";
+                }
                 $sql = "SELECT post.username, comment FROM post JOIN comments ON pid = postid WHERE pid = ?";
                 $statement2 = $pdo->prepare($sql);
                 $statement2->execute(["$pid"]);
@@ -74,7 +84,6 @@
     $pdo = null;
     $results = null;
 
-    echo "<form><input type=\"hidden\" name=\"uid\" value=\"Anonymous\"><input type=\"hidden\" name=\"date\" value = \"".date('Y-m-d H:i:s')."'><textarea> name=\"message\"</textarea><br><button style=\"submit\" name=\"submit\">Comment</button></form>";
     ?>
             </div>
         </div>
