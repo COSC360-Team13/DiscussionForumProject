@@ -1,0 +1,15 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: white;
+}
+.grid-entry{
+    padding-top: 1em;
+    text-align: center;
+    font-size: 15pt;
+    height: 100%;
+}
+table{
+    display: flex;
+    justify-content: center;
+}

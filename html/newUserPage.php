@@ -35,7 +35,7 @@
                     <tr><td colspan="2"><input type="text" name="username" id="username" placeholder="johnDoe123" class="required"></td></tr>
                     <tr><td colspan="2" ><p id="userValid"></p></td></tr>
                     <tr><td class="table-head" colspan="2"><label>Email:</label></td></tr>
-                    <tr><td colspan="2"><input type="text" name="email" id="email" placeholder="john@doe.com" class="required"></td></tr>
+                    <tr><td colspan="2"><input type="email" name="email" id="email" placeholder="john@doe.com" class="required"></td></tr>
                     <tr><td colspan="2" ><p id="emailValid"></p></td></tr>
                     <tr><td class="table-head" colspan="2"><label>Select a Profile Image:</label></td></tr>
                     <tr><td colspan="2"><select name="profile" id="profile" class="required">

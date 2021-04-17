@@ -4,6 +4,7 @@
 <!-- In the event that jquery doesnt load through the web. -->
 <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../scripts/searchBar.js"></script>
+<script type="text/javascript" src="../scripts/createNewTopicButton.js"></script>
 </head>
 <header>
     <div class="navbar">

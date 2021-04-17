@@ -38,7 +38,7 @@
                                 <button class="tablinks" onclick="openTab(event, 'comments')">Comment History</button>
                             </th>
                             <th class="tab">
-                                <button class="tablinks" onclick="openTab(event, 'posts')">Post History</button>
+                                <button style="height: 34px;" class="tablinks" onclick="openTab(event, 'posts')">Post History</button>
                             </th>
                         </tr>   
                     </thead>

@@ -18,11 +18,14 @@ include 'navBar.php';
 <div class="columns">
     <div class="grid-container">
             <?php include 'config.php';
+                //only admin can use this page
+                if (isset($_SESSION['user']) && $_SESSION['user'] === "admin"){
+                    
                 echo "<div class=\"grid-entry\">";
                 if($_SERVER["REQUEST_METHOD"] === "GET"){
                     if (isset($_GET["name"]) && $_GET["name"] != ""){
                         $name = $_GET["name"];
-                        echo "<h2>".$name."</h2>";
+                        echo "<h2>Searched: ".$name."</h2></br>";
                         $name = "%".$name."%";
 
                         $sql = "SELECT username, firstname, lastname, disabled FROM users WHERE username LIKE :first OR firstname LIKE :last";
@@ -45,7 +48,7 @@ include 'navBar.php';
                     }
                     else if (isset($_GET["email"]) && $_GET["email"] != ""){
                         $email = $_GET["email"];
-                        echo "<h2>".$email."</h2>";
+                        echo "<h2>Searched: ".$email."</br></h2>";
 
                         $sql = "SELECT username, email FROM users WHERE email LIKE ?";
                         $statement = $pdo->prepare($sql);
@@ -61,7 +64,7 @@ include 'navBar.php';
                     }
                     else if (isset($_GET["post"]) && $_GET["post"] != ""){
                         $post = $_GET["post"];
-                        echo "<h2>".$post."</h2>";
+                        echo "<h2>Searched: ".$post."</br></h2>";
 
                         $sql = "SELECT username, ptitle FROM post WHERE ptitle LIKE ?";
                         $statement = $pdo->prepare($sql);
@@ -76,6 +79,10 @@ include 'navBar.php';
                         $results = null;
                     }
                 }
+            }
+            else{
+                exit();
+            }
             ?>
     </div>
 </div>

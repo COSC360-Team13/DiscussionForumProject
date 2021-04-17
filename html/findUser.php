@@ -16,7 +16,18 @@
 <body>
     <div class="grid-container">
         <div class="grid-entry">
+            <?php
+            //check if user is admin
+                session_start();
+                if (isset($_SESSION['user']) && $_SESSION['user'] === "admin"){
+                    //continue;
+                }
+                else{
+                    exit();
+                }
+            ?>
             <button class="closeButton" onclick="goBack()"><img src="../images/close.png" alt="X" height="50" class="x"></button>
+            </br>
             <label>Find User By:</label>
             <select name="case" id="case-type" onChange="adaptForm(this)">
                 <option value="username">Name</option>
@@ -25,6 +36,7 @@
             </select>
 
             <div class="userinput">
+            </br>
                 <form method="get" action="queryUserResults.php" id="mainForm">
                     <p>
                         <label>Enter Name:</label>
@@ -41,6 +53,7 @@
                         <br>
                         <input type="text" name="post" placeholder="Post" disabled id="Post"/>
                     </p>
+            </br>
                     <input type="Submit" value="Submit" class="submitForm">
                 </form>
             </div>
