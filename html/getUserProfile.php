@@ -63,10 +63,7 @@
                         echo "<td>Comments: ".$num_comments."</td>";
                         echo "</tr></tfoot>";
                 
-                        echo "<tbody>";
-                        echo "<tr><th colspan=\"3\" class=\"edit\">";
-                        echo "<button class=\"edit\" onclick=\"addChangeButtons()\">Edit Info</button>";
-                        echo "</th></tr>"; 
+                        echo "<tbody>"; 
                 
                         echo "<tr id=\"username\"><td class=\"label\">Username</td>";
                         echo "<td id=\"useredit\">".$row['username']."</td></tr>";
@@ -99,10 +96,75 @@
                         </tr>   
                     </thead>
                     <tbody id="comments" class="tabcontent">
-                        <?php include 'profile\getUserHistory.php';?>
+                        <?php include 'config.php';
+                                $username =$user;
+
+                                //start with comments
+                                $sql = "SELECT ptitle, comments.upvotes, comments.downvotes, comment
+                                        FROM comments JOIN post ON comments.postid = post.pid
+                                        WHERE comments.username='$username'
+                                        ORDER BY comments.date DESC
+                                        LIMIT 3;";
+                                $result = $pdo->query($sql);
+                                echo "<tr><th>Comments</th></tr>";
+                                while ($row = $result->fetch()) {
+                                    $comment = $row['comment'];
+                                    $postTitle = $row['ptitle'];
+                                    $votes = $row[1] - $row[2];
+                                    $sign = "";
+                                    $color = "black";
+                                    if ($votes > 0){
+                                        $sign = "+ ";
+                                        $color = "green";
+                                    }
+                                    else{
+                                        $sign = "- ";
+                                        $color ="red";
+                                    }
+
+                                    echo "<tr><td class=\"commentOn\">Comment On:</td>";
+                                    echo "<td>".$postTitle."</td></tr>";
+                                    echo "<tr><td class=\"votes\">Votes:</td>";
+                                    echo "<td style=\"color:".$color."\">".$sign.$votes."</td>";
+                                    echo "<td>".$comment."</td></tr>";   
+                                }
+                        ?>
                     </tbody>
                     <tbody id="posts" class="tabcontent">
-                        <?php include 'profile/getUserPosts.php';?>
+                        <?php include 'config.php';
+
+                            $username = $user;
+                            //now we do posts
+                            $sql = "SELECT ptitle, post.upvotes, post.downvotes, COUNT(cid)
+                                    FROM post JOIN comments ON comments.postid = post.pid
+                                    WHERE post.username='$username'
+                                    GROUP BY ptitle
+                                    ORDER BY post.date DESC;
+                                    LIMIT 3;";
+                            $result_post = $pdo->query($sql);
+                            echo "<tr><th>Posts</th></tr>";
+                            while ($row = $result_post->fetch()) {
+                                $numComments = $row[3];
+                                $postTitle = $row['ptitle'];
+                                $votes = $row[1] - $row[2];
+                                $sign = "";
+                                $color = "black";
+                                if ($votes > 0){
+                                    $sign = "+ ";
+                                    $color = "green";
+                                }
+                                else{
+                                    $sign = "- ";
+                                    $color ="red";
+                                }
+                        
+                                echo "<tr><td class=\"commentOn\">Post:</td>";
+                                echo "<td>".$postTitle."</td></tr>";
+                                echo "<tr><td class=\"votes\">Votes:</td>";
+                                echo "<td style=\"color:".$color."\">".$sign.$votes."</td>";
+                                echo "<td>".$numComments." Comment(s)</td></tr>";
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>

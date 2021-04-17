@@ -4,3 +4,7 @@ function search(){
     // alert(url);
     $(location).attr('href',url);
 }
+function profile(){
+    var url = "profile.php";
+    $(location).attr('href',url);
+}
