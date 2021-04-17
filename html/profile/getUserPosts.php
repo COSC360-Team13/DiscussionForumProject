@@ -10,7 +10,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] !== "" ){
             FROM post JOIN comments ON comments.postid = post.pid
             WHERE post.username='$username'
             GROUP BY ptitle
-            ORDER BY post.date DESC;
+            ORDER BY post.date DESC
             LIMIT 3;";
     $result_post = $pdo->query($sql);
     echo "<tr><th>Posts</th></tr>";
