@@ -33,6 +33,7 @@ CREATE TABLE `users` (
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
     `image` varchar(100),
+    `disabled` BOOLEAN DEFAULT false,
     UNIQUE (`email`),
     PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -118,6 +119,7 @@ CREATE TABLE `comments` (
 INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('dvader', 'darth', 'vader', 'vader@dark.force', 'dvader123');
 INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('jtams', 'jeff', 'tams', 'jtams@telus.net', 'jdog123');
 INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('blue_bear', 'Blue', 'Bear', 'bearsrkewl@gmail.com', '1234');
+INSERT INTO `users` (`username`, `firstName`, `lastName`, `email`, `password`) VALUES ('admin', 'Admin', 'Istrator', 'admin@gmail.com', md5('1234'));
 --
 -- Dumping data for table `category`
 --

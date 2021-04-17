@@ -25,7 +25,7 @@
 
         <div class="grid-entry">
             <div class="user_info">
-                <?php include 'profile\getUserInfo.php';?>
+                <?php include 'profile/getUserInfo.php';?>
             </div>
         </div>
 
@@ -43,10 +43,10 @@
                         </tr>   
                     </thead>
                     <tbody id="comments" class="tabcontent">
-                        <?php include 'profile\getUserHistory.php';?>
+                        <?php include 'profile/getUserHistory.php';?>
                     </tbody>
                     <tbody id="posts" class="tabcontent">
-                        <?php include 'profile\getUserPosts.php';?>
+                        <?php include 'profile/getUserPosts.php';?>
                     </tbody>
                 </table>
             </div>
