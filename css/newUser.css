@@ -97,3 +97,9 @@ input[type=submit]:hover, input[type=reset]:hover, .grid-entry a:hover{
     border-color: #92EAA6;
     outline: none;
 }
+#profile-image{
+    width: 70px;
+    height: 70px;
+    border: 2px solid black;
+    border-radius: 35px;
+}

@@ -44,7 +44,7 @@
 
                                     }
                                        ?></select></td></tr>
-                    <tr><td class="table-head" colspan="2"><img id="profile-image" src="" width="70" height="70" style="border-radius:35px"></td></tr>
+                    <tr><td class="table-head" colspan="2"><img id="profile-image" src=""></td></tr>
                     <tr><td class="table-head" colspan="2"><label>Password:</label></td></tr>
                     <tr><td colspan="2"><input type="password" name="password" id="password" class="required"></td></tr>
                     <tr><td class="table-head" colspan="2"><label>Confirm Password:</label></td></tr>
