@@ -8,24 +8,15 @@
     <?php include 'navBar.php'; ?>
     <body style="margin-top: 7em">
         <div class="content">    
-            <h1>This subtopic doesn't exist. Would you like to create it?</h1>
-            <button class='newTopic'>
-                <a href='newSubtopic.php'>Create Subtopic</a>
-            </button>
+            <h1>This subtopic doesn't exist.</h1>
             <?php
-            /*
-                if ($_SERVER["REQUEST_METHOD"] === "GET"){
-                    $subtopic = isset($_GET["title"]) ? $_GET["title"] : "";
-                    $subtopic = "";
-                    if (empty($subtopic)) {
-                        // Redirect
-                        echo "<button class='newTopic'><a href='createSubtopic.php'>Create Subtopic</a></button>";
-                    }
-                    else {
-                        echo "<button><a href='createSubtopic.php?title=$subtopic'>Create $subtopic</a></button>";
-                    }
-                }
-            */
+            if (isset($_SESSION['user']) && $_SESSION['user'] !== ""){ 
+                echo "<h1>Would you like to create it?</h1>";
+                echo "<button class='newTopic'><a href='newSubtopic.php'>Create Subtopic</a></button>"; 
+            }else {
+                echo "<button class='newTopic'><a href='mainPage.php'>Return Home</a></button>";
+            }
+            
             ?>
         </div>
     </body>
