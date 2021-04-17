@@ -56,3 +56,21 @@ function vote(voteDiv, pid, direction) {
     xmlhttp.send();
 }
 
+function deletePost(pid, subtopic, color, textColor) {
+
+    var xmlhttp = new XMLHttpRequest();
+    
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var voteWorked = this.responseText;
+            if(voteWorked == "True"){
+                showPosts("Top", subtopic, color, textColor);
+                showComments("Top", subtopic, color, textColor);
+            }
+        }
+    };
+    
+    xmlhttp.open("GET","deletePost.php?pid="+pid,true);
+    xmlhttp.send();
+
+}

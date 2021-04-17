@@ -124,14 +124,34 @@ input[type=text] {
     text-align: left;
     padding: 0 0 0 0.5em;
 }
-.post-title td{
+.post-title{
     text-align: left;
+}
+.post-title a button{
+    background: transparent;
+    border: none;
+    font-size: 16pt;
+    font-family: "Times New Roman";
+}
+.post-title a button:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: lavender;
 }
 .post-data{
     display: grid;
     grid-template-columns: 16em auto;
     font-size: 11pt;
     padding-top: 0.25em;
+}
+#post-data-user a button{
+    background: transparent;
+    border: none;
+}
+#post-data-user a button:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: lightblue;
 }
 .post-btn{
     text-align: left;
@@ -144,6 +164,15 @@ input[type=text] {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     background-color: #92EAA6;
+}
+.post-btn button{
+    background: transparent;
+    border: none;
+}
+.post-btn button:hover{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: lightcoral;
 }
 .top-comment{
     padding: 0.25em;

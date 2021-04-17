@@ -58,7 +58,6 @@
                 <hr/>
                 <?php echo "Created ". $date ?>
                 <br/>
-                <button onclick="join()">Join!</button>
             </div>
         </div>
     </div>
@@ -70,7 +69,7 @@
             <button onclick="showPosts('Oldest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>'); showComments('Oldest', '<?php echo $subtopic ?>', '<?php echo $color; ?>', '<?php echo $textColor; ?>');">Oldest</button>
             <?php
                 if (isset($_SESSION['user']) && $_SESSION['user'] !== "" ) {
-                    echo "<button><a href='newSubtopic.php'>Create Post</a></button>";
+                    echo "<button><a href='createpost.php'>Create Post</a></button>";
                 }else {
                     echo "<div></div>";
                 }
