@@ -14,11 +14,16 @@
     <script type="text/javascript" src="../scripts/emailAvailabilityDisplay.js"></script>
     <script type="text/javascript" src="../scripts/newUserProfileImage.js"></script>
     <!-- Borrowed this password checker from lab9 -->
+    <script>
+            function goBack() {
+                window.location.href = "LoginPage.php";
+            }
+    </script>
 </head>
 <body>
     <div class="grid-container">
         <div class="grid-entry">
-            <a href="mainPage.php">Return to Homepage</a>
+        <button class="closeButton" onclick="goBack()"><img src="../images/close.png" alt="X" height="50" class="x"></button>
             <form method="POST" action="registerUser.php" id="mainForm" enctype="multipart/form-data">
                 <table>
                 <legend><h2>Join the Bear Cave</h2></legend>

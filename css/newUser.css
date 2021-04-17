@@ -110,3 +110,11 @@ input[type=submit]:hover, input[type=reset]:hover, .grid-entry a:hover{
     position: sticky;
     top: 0;
 }
+.closeButton{
+    display: flex;
+    background-color: white;
+    border:none;
+}
+.closeButton:hover{
+    background-color: violet;
+}
