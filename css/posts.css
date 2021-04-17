@@ -1,0 +1,32 @@
+.grid-container{
+    display: flex;
+    justify-content: space-around;
+    background-color: #EFEFEF;
+    border-radius: 25px;
+    width: 90%;
+    margin: auto;
+}
+.grid-header{
+    font-size: 25pt;
+    padding-top: 0.5em;
+}
+.grid-entry{
+    font-size: 12pt;
+    padding: 1em 0 1em 0;
+}
+.comment-title{
+    margin-top: 2em;
+    border-bottom: 2px solid black;
+}
+.comment{
+    display: grid;
+    grid-template-columns: 10% 90%;
+}
+.username{
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+}
+.username p{
+    color: #5780B0;
+}

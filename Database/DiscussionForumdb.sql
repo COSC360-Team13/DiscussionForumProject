@@ -144,7 +144,7 @@ INSERT INTO `subtopic` (`title`, `date`, `color`, `textColor`, `about`, `categor
 --
 INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [dec]', 'dvader', '2020-12-09', 20, 5, 'Grizzlies');
 INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [jan]', 'dvader', '2021-01-03', 30, 5, 'Grizzlies');
-INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [feb]', 'dvader', '2021-02-02', 24, 7, 'Grizzlies');
+INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `content`, `title`) VALUES ('My top grizzlies in the world [feb]', 'dvader', '2021-02-02', 24, 7, 'The grizzly bear (Ursus arctos horribilis), also known as the North American brown bear or simply grizzly' ,'Grizzlies');
 INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [mar]', 'dvader', '2021-03-05', 21, 5, 'Grizzlies');
 INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [april]', 'dvader', '2021-04-06', 2, 5, 'Grizzlies');
 INSERT INTO `post` (`ptitle`, `username`, `date`, `upvotes`, `downvotes`, `title`) VALUES ('My top grizzlies in the world [nov]', 'dvader', '2020-11-11', 6, 5, 'Grizzlies');
