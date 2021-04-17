@@ -21,7 +21,7 @@
         <div class="grid-entry">
             <?php
                 include 'config.php';
-                $sql = "SELECT DISTINCT category FROM subtopic";
+                $sql = "SELECT DISTINCT category FROM subtopic LIMIT 10";
                 $results = $pdo->query($sql);
                 while($row = $results->fetch())
                 {
@@ -45,7 +45,7 @@
         <div class="grid-entry">
             <?php
                 include 'config.php';
-                $sql = "SELECT title FROM subtopic";
+                $sql = "SELECT title FROM subtopic LIMIT 10";
                 $results = $pdo->query($sql);
                 while($row = $results->fetch())
                 {
