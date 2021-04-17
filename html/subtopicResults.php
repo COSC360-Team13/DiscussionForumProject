@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)) {
+    session_start();
+}
 $filter = "";
 if ($_SERVER["REQUEST_METHOD"] === "GET"){
     $filter = $_GET['filter']?? "Top";
@@ -11,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET"){
 
 include 'config.php';
 
-$sql = "SELECT pid, ptitle, post.username, post.date, post.upvotes, post.downvotes, count(cid) AS comments 
+$sql = "SELECT pid, ptitle, post.username, post.date, link, post.upvotes, post.downvotes, count(cid) AS comments 
     FROM post LEFT OUTER JOIN comments ON pid = postid
     WHERE title=:subtopic";
 
@@ -40,6 +43,7 @@ while($row = $statement->fetch())
     $pdate = explode('-', $pdate[0]);
     $pdate = date("jS \of F Y", mktime(0,0,0,$pdate[1], $pdate[2], $pdate[0]));
     $username = $row['username'];
+    $link = $row['link'];
     $comments = $row['comments'];
     $votes = $row['upvotes'] - $row['downvotes'];
 
@@ -62,14 +66,25 @@ while($row = $statement->fetch())
         <div class="grid-post">
             
                 <div class="post-title">
-                    <?php echo "<a href='posts.php?pid=".$pid."'>".$ptitle."</a>"; ?>
+                    <?php 
+                        if ($link == ""){
+                            echo "<a href='posts.php?pid=".$pid."'><button>".$ptitle."</button></a>"; 
+                        }else {
+                            echo "<a href='$link'><button>".$ptitle."</button></a>"; 
+                        }
+                    ?>
                 </div>
                 <div class="post-data">
                     <?php echo "<div>Posted on ".$pdate."</div>"; ?>
-                    <?php echo "<div>By ".$username."</div>"; ?>
+                    <?php echo "<div id='post-data-user'><a href='getUserProfile.php?user=$username'><button>By ".$username."</button></a></div>"; ?>
                 </div>
                 <div class="post-btn">
                     <?php echo "<a href='posts.php?pid=".$pid."'><button>".$comments." comments</button></a>"; ?>
+                    <?php
+                        if (isset($_SESSION['user']) && $_SESSION['user'] === "admin"){ 
+                            echo "<button onclick='deletePost($pid, \"$subtopic\", \"$color\", \"$textColor\")'>Delete</button>"; 
+                        }
+                    ?>
                 </div>
             
         </div>
