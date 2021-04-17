@@ -26,7 +26,7 @@
                     while ($row = $result->fetch()) {
                         //first row is username, user since, profile pic, option to delete account
                         echo "<table><thead><tr><td>";
-                        echo "<img src=\"../images/".$row['image']."\" alt=\"ProfilePic\"> - ".$row['username']."</td>";
+                        echo "<img src=\"../images/user/".$row['image']."\" alt=\"ProfilePic\" width=\"70px\" height=\"70px\" style=\"border-radius:35px\"> - ".$row['username']."</td>";
                         if (isset($_SESSION['user']) && $_SESSION['user'] === "admin"){
                             //check if user is already disabled
                             if ($row['disabled'] == 0){

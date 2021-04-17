@@ -6,7 +6,6 @@
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- In the event that jquery doesnt load through the web. -->
     <script type="text/javascript" src="../scripts/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="../scripts/createNewTopicButton.js"></script>
     <?php include 'navBar.php';?>
     <title>Home Page</title>
 </head>
