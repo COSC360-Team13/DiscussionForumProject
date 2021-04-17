@@ -1,12 +1,14 @@
 .columns{
-    margin-top: 5em;
     display: grid;
-    padding-top: 3em;
-    grid-template-columns: 25% 50% 25%;
+    padding-top: 0.5em;
+    grid-template-columns: 50% 50%;
 }
-.grid-container {
-    display: grid;
-    grid-template-rows: auto auto auto;
+#subtopic-title{
+    padding-top: 1.5em;
+    text-align: center;
+    font-size: 24pt;
+}
+.grid-container{
     background-color: white;
     padding: 0.5em;
 }
@@ -14,14 +16,19 @@
     text-align: center;
     background-color: #92EAA6;
     border-radius: 10px;
-    padding: 1em 1em 1em 1em;
-    height: auto;
-    font-size: 12pt;
+    padding: 0 1em;
+    height: 65px;
+    font-size: 18pt;
+}
+.left{
+    display: grid;
+    align-items: center;
 }
 .grid-entry {
     background: #EFEFEF;
     text-align: center;
     border-radius: 10px;
+    padding: 0.1em 0;
     margin-top: 1em;
     height: auto;
     width: auto;
@@ -44,6 +51,7 @@ a{
 }
 .center{
     display: grid;
+    align-items: center;
     grid-template-columns: 25% 50% 25%;
 }
 .center button{

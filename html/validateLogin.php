@@ -13,7 +13,7 @@
             $return_link = $_SERVER['HTTP_REFERER'];
         }
 
-        $sql = "SELECT * FROM users where username = '$username' AND password = md5('$password');";
+        $sql = "SELECT * FROM users where username = '$username' AND password = '$password';";
 
         $results = $pdo->query($sql);
 
