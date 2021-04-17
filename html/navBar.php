@@ -10,6 +10,7 @@
         <div class="logo"><a href="mainPage.php"><img src="../images/logo.png" alt="HomepageLogo"></a></div>
         <div class="searchbar">
             <input type="text" id="searchTerm" placeholder="Search for Bears..." \><button class="searchButton" onclick="search()">Search</button></div>
-        <div class="account"><?php include 'session.php'; ?></div>
+        <div class="account"><button onclick="createNewTopic()">Create subtopic +</button><?php include 'session.php'; ?></div>
+
     </div>
 </header>
