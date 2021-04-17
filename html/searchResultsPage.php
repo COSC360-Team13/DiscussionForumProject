@@ -20,8 +20,8 @@ include 'navBar.php';
 <div id="keyword">
 <?php
     if($_SERVER["REQUEST_METHOD"] === "GET"){
-        $subtopic = $_GET["searchTerm"];
-        $category = $_GET["category"];
+        $subtopic = $_GET["searchTerm"]?? "";
+        $category = $_GET["category"]?? "";
         $filter = $_GET["filter"]?? "Relevance";
     }
     echo "<img src='../images/search.png'>";
