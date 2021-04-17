@@ -7,6 +7,7 @@
         }
         if (isset($_POST["password"])){
             $password = $_POST["password"];
+            $password = md5($password);
         }
 
         if (isset($_SERVER['HTTP_REFERER'])){

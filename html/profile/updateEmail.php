@@ -1,5 +1,5 @@
 <?php
-    include '../config.php';
+    include 'config.php';
     if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
         if (isset($_POST["email"])){
             session_start();
