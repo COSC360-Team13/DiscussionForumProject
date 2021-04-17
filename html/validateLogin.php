@@ -18,10 +18,16 @@
         $results = $pdo->query($sql);
 
         if($row = $results->fetch()){
-            echo "<p>User has valid account</p>";
-            session_start();
-            $_SESSION['user'] = $username;
-            header("Location: mainPage.php");
+            if($row['disabled'] == 0){
+                echo "<p>User has valid account</p>";
+                session_start();
+                $_SESSION['user'] = $username;
+                header("Location: mainPage.php");
+            }
+            else{
+                echo "<p>You are currently banned from this website. Please contact an admin for details.</p>";
+                echo "<a href=\"$return_link\">Return to Login Page</a>";
+            }
         }
         else{
             //display error

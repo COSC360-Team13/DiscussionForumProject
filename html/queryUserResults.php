@@ -25,13 +25,19 @@ include 'navBar.php';
                         echo "<h2>".$name."</h2>";
                         $name = "%".$name."%";
 
-                        $sql = "SELECT username, firstname, lastname FROM users WHERE firstname LIKE :first  OR lastname LIKE :last";
+                        $sql = "SELECT username, firstname, lastname, disabled FROM users WHERE username LIKE :first  OR firstname LIKE :last";
                         $statement = $pdo->prepare($sql);
                         $statement->execute(array(':first' => $name, ':last' => $name));
-                        echo "<table><tr><th>Username</th><th>Name</th></tr>";
+                        echo "<table><tr><th>Username</th><th>Name</th><th>Disabled</th></tr>";
                         while($row = $statement->fetch()){
-                            echo "<tr><td>".$row['username']."</td>";
-                            echo "<td>".$row['firstname']." ".$row['lastname']."</td></tr>";
+                            echo "<tr><td><a href=\"getUserProfile.php?user=".$row['username']."\">".$row['username']."</a></td>";
+                            echo "<td>".$row['firstname']." ".$row['lastname']."</td>";
+                            if ($row['disabled'] == 0){
+                                echo"<td style=\"color:green\">False</td></tr>";
+                            }
+                            else{
+                                echo"<td style=\"color:red\">True</td></tr>";
+                            }
                         }
                         echo "</table>";
                         $pdo = null;

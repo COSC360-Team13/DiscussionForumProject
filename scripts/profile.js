@@ -282,3 +282,12 @@ function makeRed(inputDiv){
 function makeClean(inputDiv){
     inputDiv.style.borderColor="#FFFFFF";
 }
+
+function switchImg(){
+    var img = document.getElementById("unban");
+    img.src = "../images/unban.png"
+}
+function banImg(){
+    var img = document.getElementById("unban");
+    img.src = "../images/banned.png"
+}

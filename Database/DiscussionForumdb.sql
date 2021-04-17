@@ -32,6 +32,7 @@ CREATE TABLE `users` (
     `lastName` varchar(255) NOT NULL,
     `email` varchar(255) NOT NULL,
     `password` varchar(255) NOT NULL,
+    `disabled` BOOLEAN DEFAULT false,
     `image` varchar(100),
     UNIQUE (`email`),
     PRIMARY KEY (`username`)
