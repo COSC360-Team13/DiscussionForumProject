@@ -22,6 +22,11 @@ thead {
 .edit{
     text-align: right;
     color: #ea92d6;
+    border: none;
+    background-color: white;
+}
+.edit:hover{
+    color: #f340c9;
 }
 /* unvisited link */
 a:link {
@@ -67,6 +72,26 @@ tfoot td{
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+tbody{
+    background-color: #EFEFEF;
+}
+.banCell{
+    text-align: right;
+}
+.banButton, .bannedButton{
+    border:none;
+    background-color: white;
+}
+.banButton img:hover{
+    border: solid 1pt red;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
+}
+.bannedButton img:hover{
+    border: solid 1pt green;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);;
 }
 
   

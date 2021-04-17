@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/login.css">
+    <link href='https://fonts.googleapis.com/css?family=Ranga' rel='stylesheet'>
     <title>Login</title>
     <script type="text/javascript" src="../scripts/validate.js"></script>
     <?php
@@ -18,11 +19,17 @@
             echo "</script>";
         }
     ?>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
 <body>
     <div class="grid-container">
         <div class="grid-entry">
-            <div class="loginlogo"><img src="../images/bearcave.png" alt="BearCaveLogo"></div>
+            <button class="closeButton" onclick="goBack()"><img src="../images/close.png" alt="X" height="50" class="x"></button>
+            <div class="loginlogo"><img class="logo" src="../images/bearcave.png" alt="BearCaveLogo"></div>
             <div class="userinput">
                 <form method="post" action="validateLogin.php" id="mainForm">
                     <p>
@@ -45,7 +52,7 @@
             </p>
             <br>
             <p>
-                New to The Bear Cave? <a id="signup" href="newUserPage.php">BEAR UP</a>
+                New to The Bear Cave? <a id="signup" href="newUserPage.php">BearUp</a>
             </p>
         </div>
         <div class="grid-entry right">

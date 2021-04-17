@@ -46,7 +46,7 @@
         else
         {
           console.log('checking match');
-          checkPasswordMatch(e);
+          // checkPasswordMatch(e);
         }
       }
   }
