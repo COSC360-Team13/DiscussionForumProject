@@ -21,7 +21,7 @@
     ?>
     <script>
         function goBack() {
-            window.history.back();
+            window.location.href = "mainPage.php";
         }
     </script>
 </head>
@@ -47,9 +47,6 @@
                     <input type="Submit" value="BearIn" class="submitForm">
                 </form>
             </div>
-            <p>
-                Forgot your <a href="">username</a> or <a href="">password</a>?
-            </p>
             <br>
             <p>
                 New to The Bear Cave? <a id="signup" href="newUserPage.php">BearUp</a>
